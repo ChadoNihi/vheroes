@@ -6,3 +6,7 @@ links
 
 
 -----
+https://github.com/akiran/react-slick
+--------
+todo:
+ - key to id
