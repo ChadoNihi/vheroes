@@ -1,0 +1,11 @@
+{
+  "heroes": [
+    {
+      "id": 0,
+      "name": "David Pearce",
+      "shortIntro": "A negative-utilitarian transhumanist philosopher, author of \"The Hedonistic Imperative\" and \"The Abolitionist Project\", co-founder of Humanity+ (formerly the World Transhumanist Association).",
+      "lang": ["English"],
+      "what": ""
+    }
+  ]
+}
