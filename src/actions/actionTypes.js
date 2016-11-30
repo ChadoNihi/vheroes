@@ -1,0 +1,1 @@
+export const CHANGE_HERO_IN_FOCUS = 'CHANGE_HERO_IN_FOCUS';
