@@ -5,7 +5,26 @@
       "name": "David Pearce",
       "shortIntro": "A negative-utilitarian transhumanist philosopher, author of \"The Hedonistic Imperative\" and \"The Abolitionist Project\", co-founder of Humanity+ (formerly the World Transhumanist Association).",
       "lang": ["English"],
-      "what": ""
+      "what": "Popularized suffering-focused ethics and the notion of \"paradise engineering\" within transhumanist movement. Argues for technological solutions to abolish suffering for all sentient beings. Authored \"The Anti-Speciesist Revolution\".",
+      "see": [
+        "<a href='' target='_blank'>The Hedonistic Imperative</a>",
+        "<a href='' target='_blank'>The Anti-Speciesist Revolution</a>",
+        "<a href='' target='_blank'>The Abolitionist Project</a>",
+        "<a href='' target='_blank'>High-Tech Jainism</a>",
+        "other work on <a href='' target='_blank'>hedweb.com</a>"
+      ],
+      "social": []
+    },
+    {
+      "id": 1,
+      "name": "Michael Greger",
+      "shortIntro": "A physician and dietician",
+      "lang": ["English"],
+      "what": "",
+      "see": [
+        "<a href='' target='_blank'>NutritionFacts.org</a>"
+      ],
+      "social": []
     }
   ]
 }

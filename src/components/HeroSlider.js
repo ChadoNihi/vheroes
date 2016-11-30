@@ -1,7 +1,7 @@
 var React = require('react');
 var Slider = require('react-slick');
 
-export default SimpleSlider = ({heroes})=> {
+export default HeroSlider = ({heroes})=> {
   const settings = {
     dots: false,
     infinite: true,
@@ -11,8 +11,8 @@ export default SimpleSlider = ({heroes})=> {
   };
   return (
     <Slider {...settings}>
-      {heroes.map( (hero, i)=> {
-        return <HeroSlide key={i} />;
+      {heroes.map( (hero)=> {
+        return <HeroSlide key={hero.id} {...hero} />;
       })}
     </Slider>
   );
