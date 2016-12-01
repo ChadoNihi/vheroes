@@ -10,3 +10,4 @@ https://github.com/akiran/react-slick
 --------
 todo:
  - key to id
+ https://medium.com/@chvanikoff/phoenix-react-love-story-reph-1-c68512cfe18#.fa8enezas
