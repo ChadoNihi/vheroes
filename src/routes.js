@@ -9,7 +9,7 @@ import About from './components/About.js';
 export default (
   <Route path="/" component={App}>
     <Route component={HeroSlider}>
-      <Route path="hero/:heroId" component={HeroSlide} />
+      <Route path="hero(/:heroId)" component={HeroSlide} />
     </Route>
     <Route path="/about" component={About}></Route>
   </Route>

@@ -9,5 +9,6 @@ links
 https://github.com/akiran/react-slick
 --------
 todo:
- - key to id
+ - id out of bounds
+ - localStorage?
  https://medium.com/@chvanikoff/phoenix-react-love-story-reph-1-c68512cfe18#.fa8enezas
