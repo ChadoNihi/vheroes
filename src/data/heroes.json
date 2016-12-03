@@ -3,6 +3,7 @@
     {
       "id": 0,
       "name": "David Pearce",
+      "imgSrc": "",
       "shortIntro": "A negative-utilitarian transhumanist philosopher, author of \"The Hedonistic Imperative\" and \"The Abolitionist Project\", co-founder of Humanity+ (formerly the World Transhumanist Association).",
       "lang": ["English"],
       "what": "Popularized suffering-focused ethics and the notion of \"paradise engineering\" within transhumanist movement. Argues for technological solutions to abolish suffering for all sentient beings. Authored \"The Anti-Speciesist Revolution\".",
@@ -11,20 +12,24 @@
         "<a href='' target='_blank'>The Anti-Speciesist Revolution</a>",
         "<a href='' target='_blank'>The Abolitionist Project</a>",
         "<a href='' target='_blank'>High-Tech Jainism</a>",
-        "other work on <a href='' target='_blank'>hedweb.com</a>"
+        "and other work on <a href='' target='_blank'>hedweb.com</a>",
+        "<a href='https://www.facebook.com/groups/hedonistic.imperative/'>The Hedonistic Imperative</a> group on FB. (As of December 2016, David is a frequent contributor.)"
       ],
-      "social": []
+      "socialMediaAccounts": []
     },
     {
       "id": 1,
       "name": "Michael Greger",
-      "shortIntro": "A physician and dietician",
+      "imgSrc": "",
+      "shortIntro": "A physician, dietician, professional speaker, writer. Advocates plant-based diet. A man behind <a href='http://nutritionfacts.org/'>NutritionFacts.org</a>.",
       "lang": ["English"],
-      "what": "",
+      "what": "A prolific educator on whole-food, plant-based diets and health harms of eating animals. In his videos and articles on <a href='http://nutritionfacts.org/'>NutritionFacts.org</a>, Greger briefly presents (with his signature touch of humor!) scientific studies relevant to a healthy vegan lifestyle. The site claims, \"100% of all proceeds he has ever received from his books, DVDs, and speaking engagements has always and will always be donated to charity.\"",
       "see": [
-        "<a href='' target='_blank'>NutritionFacts.org</a>"
+        "<a href='' target='_blank'>NutritionFacts.org</a>",
+        "Nutrition Year-in-Reviews, e.g. <a href='http://nutritionfacts.org/video/food-as-medicine/'>Food as Medicine: Preventing & Treating the Most Dreaded Diseases with Diet</a>",
+        "\"How Not to Die\" and other <a href='https://drgreger.org/pages/selected-writings'>selected writings</a>"
       ],
-      "social": []
+      "socialMediaAccounts": []
     }
   ]
 }

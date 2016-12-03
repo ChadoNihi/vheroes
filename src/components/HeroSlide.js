@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default HeroSlide = (props)=> {
   console.log('HeroSlide props: '+props);
   return (

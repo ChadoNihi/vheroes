@@ -1,49 +1,51 @@
 import express from 'express';
+import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-const app = express();
-
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-});
-
-
-
-/*
-import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
 import routes from './routes';
 
-serve((req, res) => {
-  // Note that req.url here should be the full URL path from
-  // the original request, including the query string.
-  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-    if (error) {
-      res.status(500).send(error.message)
-    } else if (redirectLocation) {
-      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-    } else if (renderProps) {
-      // You can also check renderProps.components or renderProps.routes for
-      // your "not found" component or route respectively, and send a 404 as
-      // below, if you're using a catch-all route.
-      res.status(200).send(renderToString(<RouterContext {...renderProps} />))
+const app = express(),
+      port = process.env.PORT || 8080;
+
+const renderFullPage = (html, preloadedState)=>
+  `
+  <!doctype html>
+  <html>
+    <head>
+      <title>Redux Universal Example</title>
+    </head>
+    <body>
+      <div id="root">${html}</div>
+      <script>
+        window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}
+      </script>
+      <script src="/static/bundle.js"></script>
+    </body>
+  </html>
+  `
+
+app.get('/*', function (req, res) {
+  match({ routes, location: req.url }, (err, redirect, props) => {
+    if (err) {
+      // JSON.stringify
+      res.status(500).send(err.message);
+    } else if (redirect) {
+      res.redirect(redirect.pathname + redirect.search);
+    } else if (props) {
+      const html = renderToString(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+      res.send(renderFullPage(html, store.getState()));
+
     } else {
-      res.status(404).send('Not found')
+      res.status(404).send('Not Found');
     }
-  })
+  });
 });
-*/
 
-
-
-/*[
-  {
-    id,
-    name,
-    what,
-    writesOn: {}
-  }
-]*/
+app.listen(port, function () {
+  console.log(`The app's listening on port ${port}!`);
+});

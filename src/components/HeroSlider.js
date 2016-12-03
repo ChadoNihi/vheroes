@@ -1,10 +1,11 @@
-var React = require('react');
-var Slider = require('react-slick');
+import React from 'react';
+import Slider from 'react-slick';
 
-export default HeroSlider = ({heroes})=> {
+export default HeroSlider = ({heroes, params})=> {
   const settings = {
     dots: false,
     infinite: true,
+    initialSlide: params.heroId || 0,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
