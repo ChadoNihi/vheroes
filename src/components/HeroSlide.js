@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default HeroSlide = (props)=> {
+export default (props)=> {
   console.log('HeroSlide props: '+props);
   return (
     <div className='hero-block'>

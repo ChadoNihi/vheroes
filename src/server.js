@@ -1,12 +1,15 @@
 import express from 'express';
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { match, RouterContext } from 'react-router';
 import fs from 'fs';
+import path from 'path';
 
 import routes from './routes';
 import configureStore from './store/configureStore';
+import {changeHero, setHeroes, setSortBy} from './actions/actions';
 
 const app = express(),
       port = process.env.PORT || 8080;
@@ -50,12 +53,18 @@ app.get('/*', function (req, res) {
       fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
         if (err) console.log(err);
 
-        const store = configureStore(undefined, JSON.parse(jsonStr));
-        const html = renderToString(
+        //const initialState = Object.assign({}, JSON.parse(jsonStr), {heroInFocus:0, sortBy: 'id'});
+        const store = configureStore();
+        store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
+        store.dispatch(changeHero(0));
+        store.dispatch(setSortBy('id'));
+
+        const html = ReactDOMServer.renderToString(
           <Provider store={store}>
             <RouterContext {...props}/>
           </Provider>
         );
+
         res.send(renderFullPage(html, store.getState())); // change to jsonStr + change renderFullPage accordingly
       });
     } else {

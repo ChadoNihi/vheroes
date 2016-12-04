@@ -1,5 +1,6 @@
 import React  from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 import { changeHero } from '../actions/actions';
 import Header from './Header';
@@ -10,7 +11,7 @@ const App = (props) => {
     <div className="mdl-layout mdl-js-layout mdl-layout--no-drawer-button">
       <Header title="Vegan Heroes" subtitle="those I'm aware of" />
       <main className="mdl-layout__content">
-        {this.props.children}
+        {props.children}
         {/*<Footer />*/}
       </main>
     </div>

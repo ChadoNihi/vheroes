@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-export default HeroSlider = ({heroes, params})=> {
+export default ({heroes, params})=> {
   const settings = {
     dots: false,
     infinite: true,
