@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import routes from './routes';
 import { configureStore } from './store/configureStore';
-//require('./main.styl');
+require('./styles/main.styl');
 
 const store = configureStore(browserHistory, window.__PRELOADED_STATE__);
 //const history = syncHistoryWithStore(browserHistory, store);

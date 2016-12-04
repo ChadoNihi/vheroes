@@ -21,7 +21,7 @@ const renderFullPage = (html, preloadedState)=>
     <head lang='en'>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="Voting App for Free Code Camp" />
+      <meta name="description" content="A list of persons consciously contributed to reduction of non-human animal suffering. Their impact on bringing about a vegan world is reletively noticeable" />
       <title>Vegan Heroes</title>
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -35,7 +35,7 @@ const renderFullPage = (html, preloadedState)=>
       <script>
         window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}
       </script>
-      <script src="/public/bundle.js"></script>
+      <script src="public/js/bundle.js"></script>
     </body>
   </html>
   `

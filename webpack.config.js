@@ -28,16 +28,12 @@ module.exports = [
           exclude: /(node_modules)/,
           test: /\.styl$/,
           loader: ExtractTextPlugin.extract(['css-loader', 'stylus-loader']),
-        },/*
-        {
-            exclude: /(node_modules)/,
-            test: /\.(eot|svg|ttf|woff|woff2)$/,
-            loader: "file-loader"
-        }*/
+        },
+        {test: /\.css$/, loader: "style-loader!css-loader!postcss-loader"}
       ]
   },
   plugins: [
-    new ExtractTextPlugin("css/main.css"),
+    new ExtractTextPlugin("../css/main.css"),
   ]
 },
 
@@ -58,8 +54,7 @@ module.exports = [
           query: {
               presets: ['es2015', 'react']
           }
-      },
-      {test: /\.css$/, loader: "style-loader!css-loader!postcss-loader"}
+      }
     ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
