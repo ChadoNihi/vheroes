@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-//import { routerReducer } from "react-router-redux";
+import { routerReducer } from "react-router-redux";
 
 import * as a from "./actions/actionTypes.js";
 
@@ -18,5 +18,6 @@ const rootReducer = (state = initialState, action = {})=> {
 };
 
 export default combineReducers({
-  rootReducer
+  rootReducer,
+  routerReducer
 });

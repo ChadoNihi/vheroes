@@ -2,8 +2,11 @@ import express from 'express';
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { match, RouterContext } from 'react-router';
+import fs from 'fs';
 
 import routes from './routes';
+import configureStore from './store/configureStore';
 
 const app = express(),
       port = process.env.PORT || 8080;
@@ -12,18 +15,29 @@ const renderFullPage = (html, preloadedState)=>
   `
   <!doctype html>
   <html>
-    <head>
-      <title>Redux Universal Example</title>
+    <head lang='en'>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Voting App for Free Code Camp" />
+      <title>Vegan Heroes</title>
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-orange.min.css" />
+      <link rel="stylesheet" href="public/css/main.css" />
+      <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+      <script defer src="https://use.fontawesome.com/ade899c041.js"></script>
     </head>
     <body>
       <div id="root">${html}</div>
       <script>
         window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}
       </script>
-      <script src="/static/bundle.js"></script>
+      <script src="/public/bundle.js"></script>
     </body>
   </html>
   `
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/*', function (req, res) {
   match({ routes, location: req.url }, (err, redirect, props) => {
@@ -33,13 +47,17 @@ app.get('/*', function (req, res) {
     } else if (redirect) {
       res.redirect(redirect.pathname + redirect.search);
     } else if (props) {
-      const html = renderToString(
-        <Provider store={store}>
-          <App />
-        </Provider>
-      );
-      res.send(renderFullPage(html, store.getState()));
+      fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
+        if (err) console.log(err);
 
+        const store = configureStore(undefined, JSON.parse(jsonStr));
+        const html = renderToString(
+          <Provider store={store}>
+            <RouterContext {...props}/>
+          </Provider>
+        );
+        res.send(renderFullPage(html, store.getState())); // change to jsonStr + change renderFullPage accordingly
+      });
     } else {
       res.status(404).send('Not Found');
     }

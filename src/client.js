@@ -4,10 +4,10 @@ import { browserHistory, match, Router } from 'react-router';
 import { Provider } from 'react-redux';
 
 import routes from './routes';
-import { configureStore } from './store';
+import { configureStore } from './store/configureStore';
 //require('./main.styl');
 
-const store = configureStore(browserHistory, window.__initialState__);
+const store = configureStore(browserHistory, window.__PRELOADED_STATE__);
 //const history = syncHistoryWithStore(browserHistory, store);
 
 document.addEventListener('DOMContentLoaded', ()=> {
