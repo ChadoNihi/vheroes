@@ -1,5 +1,5 @@
 import React  from 'react';
-import {Link, Match, Redirect} from 'react-router';
+import {Link, Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero } from '../actions/actions';
@@ -27,8 +27,8 @@ class App extends React.Component {
             ()=> <Redirect to='/hero/0' />
           } />
           <Match exactly pattern='/about' component={About} />
-          <Match pattern='/hero(/:heroId)' component={HeroSlider} />
-          <Miss render={()=> <h2>No pages for <code>{location.pathname}</code></h2>} />
+          <Match pattern='/hero/:heroId' render={({heroes})=> <HeroSlider heroes={heroes} />} />
+          <Miss render={()=> <h2>No pages for such address</h2>} />
           {/*<Footer />*/}
         </main>
       </div>

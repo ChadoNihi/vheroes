@@ -2,6 +2,7 @@ import Express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 //import { Provider } from 'react-redux';
 import { ServerRouter, createServerRenderContext } from 'react-router'
 import fs from 'fs';
@@ -43,79 +44,86 @@ const renderFullPage = (html, preloadedState)=>
 
 app.use(Express.static('public'));
 
-app.get('/*', function (req, res) {
-  const context = createServerRenderContext();
+fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
+  if (err) console.log(err);
 
-  let markup = renderToString(
-    <ServerRouter
-      location={req.url}
-      context={context}
-    >
-      <App/>
-    </ServerRouter>
-  );
+  app.get('/*', function (req, res) {
+    const context = createServerRenderContext();
+    const store = configureStore();
+    store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
+    store.dispatch(changeHero(0));
+    store.dispatch(setSortBy('id'));
 
-  const result = context.getResult();
-
-  if (result.redirect) {
-    res.writeHead(301, {
-      Location: result.redirect.pathname
-    })
-    res.end()
-  } else {
-    // the result will tell you if there were any misses, if so
-    // we can send a 404 and then do a second render pass with
-    // the context to clue the <Miss> components into rendering
-    // this time (on the client they know from componentDidMount)
-    if (result.missed) {
-      res.writeHead(404)
-      markup = renderToString(
+    let markup = ReactDOMServer.renderToString(
+      <Provider store={store}>
         <ServerRouter
           location={req.url}
           context={context}
         >
           <App/>
         </ServerRouter>
-      )
-    }
-    const store = configureStore();
-    store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
-    store.dispatch(changeHero(0));
-    store.dispatch(setSortBy('id'));
+      </Provider>
+    );
 
-    res.send(renderFullPage(markup, store.getState()));
-  }
+    const result = context.getResult();
 
-  /*match({ routes, location: req.url }, (err, redirect, props) => {
-    if (err) {
-      // JSON.stringify
-      res.status(500).send(err.message);
-    } else if (redirect) {
-      res.redirect(redirect.pathname + redirect.search);
-    } else if (props) {
-      fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
-        if (err) console.log(err);
-
-        //const initialState = Object.assign({}, JSON.parse(jsonStr), {heroInFocus:0, sortBy: 'id'});
-        const store = configureStore();
-        store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
-        store.dispatch(changeHero(0));
-        store.dispatch(setSortBy('id'));
-
-        const html = ReactDOMServer.renderToString(
-          <Provider store={store}>
-            <RouterContext {...props}/>
-          </Provider>
-        );
-
-        res.send(renderFullPage(html, store.getState())); // change to jsonStr + change renderFullPage accordingly
+    if (result.redirect) {
+      res.writeHead(301, {
+        Location: result.redirect.pathname
       });
+      res.end();
     } else {
-      res.status(404).send('Not Found');
-    }
-  });*/
-});
+      // the result will tell you if there were any misses, if so
+      // we can send a 404 and then do a second render pass with
+      // the context to clue the <Miss> components into rendering
+      // this time (on the client they know from componentDidMount)
+      if (result.missed) {
+        res.status(404);
+        markup = ReactDOMServer.renderToString(
+          <Provider store={store}>
+            <ServerRouter
+              location={req.url}
+              context={context}
+            >
+              <App/>
+            </ServerRouter>
+          </Provider>
+        )
+      }
 
-app.listen(port, function () {
-  console.log(`The app's listening on port ${port}!`);
+      res.send(renderFullPage(markup, store.getState()));
+    }
+
+    /*match({ routes, location: req.url }, (err, redirect, props) => {
+      if (err) {
+        res.status(500).send(err.message);
+      } else if (redirect) {
+        res.redirect(redirect.pathname + redirect.search);
+      } else if (props) {
+        fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
+          if (err) console.log(err);
+
+          //const initialState = Object.assign({}, JSON.parse(jsonStr), {heroInFocus:0, sortBy: 'id'});
+          const store = configureStore();
+          store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
+          store.dispatch(changeHero(0));
+          store.dispatch(setSortBy('id'));
+
+          const html = ReactDOMServer.renderToString(
+            <Provider store={store}>
+              <RouterContext {...props}/>
+            </Provider>
+          );
+
+          res.send(renderFullPage(html, store.getState())); // change to jsonStr + change renderFullPage accordingly
+        });
+      } else {
+        res.status(404).send('Not Found');
+      }
+    });*/
+  });
+
+  app.listen(port, function () {
+    console.log(`The app's listening on port ${port}!`);
+  });
 });
