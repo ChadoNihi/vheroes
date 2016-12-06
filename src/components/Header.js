@@ -9,14 +9,14 @@ export default ({title, subtitle})=>
         <span>{subtitle}</span>
         <div className="mdl-layout-spacer"></div>
           <nav className="mdl-navigation">
-            <Link to="/about" className="mdl-navigation__link">Logout</Link>
+            <Link to="/about" className="mdl-navigation__link">About</Link>
           </nav>
       </div>
     </header>
     <div className="mdl-layout__drawer mdl-layout--small-screen-only">
       <span className="mdl-layout-title">Title</span>
       <nav className="mdl-navigation">
-        <Link to="/about" className="mdl-navigation__link">Logout</Link>
+        <Link to="/about" className="mdl-navigation__link">About</Link>
       </nav>
     </div>
   </div>;

@@ -1,9 +1,11 @@
 import React  from 'react';
-import {Link} from 'react-router';
+import {Link, Match, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero } from '../actions/actions';
 import Header from './Header';
+import About from './About';
+import HeroSlider from './HeroSlider';
 //import Footer from './Footer';
 
 class App extends React.Component {
@@ -21,7 +23,12 @@ class App extends React.Component {
       <div className="mdl-layout mdl-js-layout mdl-layout--no-drawer-button">
         <Header title="Vegan Heroes" subtitle="those I'm aware of" />
         <main className="mdl-layout__content">
-          {this.props.children}
+          <Match exactly pattern='/' render={
+            ()=> <Redirect to='/hero/0' />
+          } />
+          <Match exactly pattern='/about' component={About} />
+          <Match pattern='/hero(/:heroId)' component={HeroSlider} />
+          <Miss render={()=> <h2>No pages for <code>{location.pathname}</code></h2>} />
           {/*<Footer />*/}
         </main>
       </div>

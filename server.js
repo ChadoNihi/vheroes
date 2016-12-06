@@ -2,12 +2,13 @@ import Express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { match, RouterContext } from 'react-router';
+//import { Provider } from 'react-redux';
+import { ServerRouter, createServerRenderContext } from 'react-router'
 import fs from 'fs';
 import path from 'path';
 
-import routes from './src/routes';
+//import routes from './src/routes';
+import App from './src/components/App';
 import configureStore from './src/store/configureStore';
 import {changeHero, setHeroes, setSortBy} from './src/actions/actions';
 
@@ -43,7 +44,49 @@ const renderFullPage = (html, preloadedState)=>
 app.use(Express.static('public'));
 
 app.get('/*', function (req, res) {
-  match({ routes, location: req.url }, (err, redirect, props) => {
+  const context = createServerRenderContext();
+
+  let markup = renderToString(
+    <ServerRouter
+      location={req.url}
+      context={context}
+    >
+      <App/>
+    </ServerRouter>
+  );
+
+  const result = context.getResult();
+
+  if (result.redirect) {
+    res.writeHead(301, {
+      Location: result.redirect.pathname
+    })
+    res.end()
+  } else {
+    // the result will tell you if there were any misses, if so
+    // we can send a 404 and then do a second render pass with
+    // the context to clue the <Miss> components into rendering
+    // this time (on the client they know from componentDidMount)
+    if (result.missed) {
+      res.writeHead(404)
+      markup = renderToString(
+        <ServerRouter
+          location={req.url}
+          context={context}
+        >
+          <App/>
+        </ServerRouter>
+      )
+    }
+    const store = configureStore();
+    store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
+    store.dispatch(changeHero(0));
+    store.dispatch(setSortBy('id'));
+
+    res.send(renderFullPage(markup, store.getState()));
+  }
+
+  /*match({ routes, location: req.url }, (err, redirect, props) => {
     if (err) {
       // JSON.stringify
       res.status(500).send(err.message);
@@ -70,7 +113,7 @@ app.get('/*', function (req, res) {
     } else {
       res.status(404).send('Not Found');
     }
-  });
+  });*/
 });
 
 app.listen(port, function () {
