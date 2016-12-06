@@ -1,4 +1,4 @@
-import express from 'express';
+import Express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { createStore } from 'redux';
@@ -7,11 +7,11 @@ import { match, RouterContext } from 'react-router';
 import fs from 'fs';
 import path from 'path';
 
-import routes from './routes';
-import configureStore from './store/configureStore';
-import {changeHero, setHeroes, setSortBy} from './actions/actions';
+import routes from './src/routes';
+import configureStore from './src/store/configureStore';
+import {changeHero, setHeroes, setSortBy} from './src/actions/actions';
 
-const app = express(),
+const app = new Express(),
       port = process.env.PORT || 8080;
 
 const renderFullPage = (html, preloadedState)=>
@@ -26,7 +26,7 @@ const renderFullPage = (html, preloadedState)=>
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-orange.min.css" />
-      <link rel="stylesheet" href="public/css/main.css" />
+      <link rel="stylesheet" href="/css/main.css" />
       <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
       <script defer src="https://use.fontawesome.com/ade899c041.js"></script>
     </head>
@@ -35,12 +35,12 @@ const renderFullPage = (html, preloadedState)=>
       <script>
         window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}
       </script>
-      <script src="public/js/bundle.js"></script>
+      <script src="/js/bundle.js"></script>
     </body>
   </html>
   `
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(Express.static('public'));
 
 app.get('/*', function (req, res) {
   match({ routes, location: req.url }, (err, redirect, props) => {

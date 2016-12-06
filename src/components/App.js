@@ -6,16 +6,27 @@ import { changeHero } from '../actions/actions';
 import Header from './Header';
 //import Footer from './Footer';
 
-const App = (props) => {
-  return (
-    <div className="mdl-layout mdl-js-layout mdl-layout--no-drawer-button">
-      <Header title="Vegan Heroes" subtitle="those I'm aware of" />
-      <main className="mdl-layout__content">
-        {props.children}
-        {/*<Footer />*/}
-      </main>
-    </div>
-  )
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount () {
+    /*this.props.dispatch(fetchPolls());
+    this.props.dispatch(fetchUser());*/
+  }
+
+  render() {
+    return (
+      <div className="mdl-layout mdl-js-layout mdl-layout--no-drawer-button">
+        <Header title="Vegan Heroes" subtitle="those I'm aware of" />
+        <main className="mdl-layout__content">
+          {this.props.children}
+          {/*<Footer />*/}
+        </main>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {

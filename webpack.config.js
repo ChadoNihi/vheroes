@@ -39,7 +39,7 @@ module.exports = [
 
 
 {
-  entry: join(__dirname, "/src/server.js"),
+  entry: join(__dirname, "server.js"),
   output: {
     filename: join(__dirname, "bundle.server.js"),
     //libraryTarget: 'commonjs2',

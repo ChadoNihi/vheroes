@@ -15,7 +15,8 @@
         "and other work on <a href='' target='_blank'>hedweb.com</a>",
         "<a href='https://www.facebook.com/groups/hedonistic.imperative/'>The Hedonistic Imperative</a> group on FB. (As of December 2016, David is a frequent contributor.)"
       ],
-      "socialMediaAccounts": []
+      "socialMediaAccounts": [],
+      "tags": ["philosopher", "transhumanist"]
     },
     {
       "id": 1,
@@ -29,7 +30,8 @@
         "Nutrition Year-in-Reviews, e.g. <a href='http://nutritionfacts.org/video/food-as-medicine/' target='_blank'>Food as Medicine: Preventing & Treating the Most Dreaded Diseases with Diet</a>",
         "\"How Not to Die\" and other <a href='https://drgreger.org/pages/selected-writings' target='_blank'>selected writings</a>"
       ],
-      "socialMediaAccounts": []
+      "socialMediaAccounts": [],
+      "tags": ["dietician", "physician"]
     }
   ]
 }
