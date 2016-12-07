@@ -1,4 +1,5 @@
 import {createStore, compose, applyMiddleware} from 'redux';
+import createLogger from 'redux-logger';
 //import thunkMiddleware from 'redux-thunk';
 import reducer from '../reducer';
 
@@ -7,6 +8,6 @@ export default function configureStore(history, initialState) {
     reducer,
     (Object.prototype.toString.call(initialState) === "[object String]" ?
       JSON.parse(initialState) : initialState),
-    applyMiddleware(logger)
+    applyMiddleware( createLogger() )
   );
 }

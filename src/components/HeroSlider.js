@@ -14,7 +14,7 @@ export default ({heroes, params})=> {
   return (
     <Slider {...settings}>
       {heroes.map( (hero)=> {
-        return <HeroSlide key={hero.id} {...hero} />;
+        return <div key={hero.id}><HeroSlide {...hero} /></div>;
       })}
     </Slider>
   );

@@ -20,8 +20,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="mdl-layout mdl-js-layout mdl-layout--no-drawer-button">
-        <Header title="Vegan Heroes" subtitle="those I'm aware of" />
+      <div className="mdl-layout mdl-js-layout">
+        {/*<Header title="Vegan Heroes" subtitle="those I'm aware of" />*/}
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={
             ()=> <Redirect to='/hero/0' />
