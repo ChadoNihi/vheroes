@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import HeroSlide from './HeroSlide'
 
 export default ({heroes, params})=> {
   const settings = {

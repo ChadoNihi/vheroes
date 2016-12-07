@@ -5,7 +5,8 @@ import reducer from '../reducer';
 export default function configureStore(history, initialState) {
   return createStore(
     reducer,
-    initialState
-    //applyMiddleware(thunkMiddleware)
+    (Object.prototype.toString.call(initialState) === "[object String]" ?
+      JSON.parse(initialState) : initialState),
+    applyMiddleware(logger)
   );
 }

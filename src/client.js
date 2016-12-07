@@ -6,9 +6,12 @@ import { Provider } from 'react-redux';
 //import routes from './routes';
 import App from './components/App';
 import configureStore from './store/configureStore';
+require("slick-carousel");
+require("slick-carousel/slick/slick.css");
+require("slick-carousel/slick/slick-theme.css");
 require('./styles/main.styl');
 
-const store = configureStore(browserHistory, window.__PRELOADED_STATE__);
+const store = configureStore(undefined, window.__PRELOADED_STATE__);
 //const history = syncHistoryWithStore(browserHistory, store);
 
 document.addEventListener('DOMContentLoaded', ()=> {

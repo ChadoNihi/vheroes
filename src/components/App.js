@@ -27,7 +27,7 @@ class App extends React.Component {
             ()=> <Redirect to='/hero/0' />
           } />
           <Match exactly pattern='/about' component={About} />
-          <Match pattern='/hero/:heroId' render={({heroes})=> <HeroSlider heroes={heroes} />} />
+          <Match pattern='/hero/:heroId' render={(props)=> <HeroSlider {...props} heroes={this.props.heroes || []} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           {/*<Footer />*/}
         </main>

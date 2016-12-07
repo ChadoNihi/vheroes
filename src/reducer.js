@@ -22,7 +22,4 @@ const rootReducer = (state = {}, action = {})=> {
   }
 };
 
-export default combineReducers({
-  rootReducer,
-  //routerReducer
-});
+export default rootReducer;
