@@ -47,6 +47,13 @@ app.use(Express.static('public'));
 fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
   if (err) console.log(err);
 
+  /*let heroes = JSON.parse(jsonStr).heroes;
+  heroes.forEach(hero=> {
+    hero.shortIntro = hero.shortIntro.replace(/ /g, "\u00a0");
+    hero.what = hero.what.replace(/ /g, "\u00a0");
+    hero.see = hero.see.map(opt=> opt.replace(/ /g, "\u00a0"));
+  });*/
+
   app.get('/*', function (req, res) {
     const context = createServerRenderContext();
     const store = configureStore();

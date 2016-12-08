@@ -1,13 +1,16 @@
+$bg-color = white
+
 body, html, .hero-block
   height: 100vh
   width: 100vw
-  background: white
+  background: $bg-color
 
 .mdl-layout__header--transparent
   background: rgb(0, 0, 0)
   background: rgba(255, 0, 0, 0)
 
 .hero-block
+  max-width: 90em
   padding: 1em
 .hero-img
   max-width: 100vw
@@ -16,9 +19,15 @@ body, html, .hero-block
   position: relative
   left: -20%
   text-align: center
-  text-shadow: 0.05em 0.05em 20px white, 0.05em 0.05em 20px white, 0.05em 0.05em 20px white
+  text-shadow: 0.05em 0.05em 25px white, 0.05em 0.05em 25px white, 0.05em 0.05em 25px white
 @media screen and (min-width: 600px)
   .hero-img
-    border: 3vw solid white
+    padding: 3vw
     float: left
     max-width: 50vw
+  .explore-list__item
+    display: inline-block
+
+
+.save-spaces
+  white-space: pre-wrap
