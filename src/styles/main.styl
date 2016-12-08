@@ -8,12 +8,17 @@ body, html, .hero-block
   background: rgba(255, 0, 0, 0)
 
 .hero-block
-  background: blue
+  padding: 1em
 .hero-img
   max-width: 100vw
 .hero-name
+  //mix-blend-mode: difference
+  position: relative
+  left: -20%
   text-align: center
+  text-shadow: 0.05em 0.05em 20px white, 0.05em 0.05em 20px white, 0.05em 0.05em 20px white
 @media screen and (min-width: 600px)
   .hero-img
-    border: 2em solid white
+    border: 3vw solid white
     float: left
+    max-width: 50vw
