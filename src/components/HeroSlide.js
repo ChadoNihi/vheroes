@@ -3,7 +3,7 @@ import React from 'react';
 export default ({imgSrc, name, shortIntro, what, see})=> {
   return (
     <div className='hero-block'>
-      <img className='hero-img' src={imgSrc} alt={`most probably a photo of ${name}`} />
+      <img className='hero-img' src={imgSrcs.default} alt={`most probably a photo of ${name}`} />
       <h1 className='hero-name' dangerouslySetInnerHTML={{__html: name}}></h1>
       <h6 className='hero-intro save-spaces' dangerouslySetInnerHTML={{__html: shortIntro}}></h6>
       <p className='hero-what save-spaces' dangerouslySetInnerHTML={{__html: what}}></p>

@@ -92,7 +92,7 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
               location={req.url}
               context={context}
             >
-              <App/>
+              <App />
             </ServerRouter>
           </Provider>
         )
