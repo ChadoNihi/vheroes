@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({imgSrc, name, shortIntro, what, see})=> {
+export default ({imgSrcs, name, shortIntro, what, see})=> {
   return (
     <div className='hero-block'>
       <img className='hero-img' src={imgSrcs.default} alt={`most probably a photo of ${name}`} />

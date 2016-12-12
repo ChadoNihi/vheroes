@@ -24,7 +24,7 @@ class App extends React.Component {
       <div className="mdl-layout mdl-js-layout">
         {/*<Header title="Vegan Heroes" subtitle="those I'm aware of" />*/}
         <main className="mdl-layout__content">
-          <Match exactly pattern='/' component={HeroGrid} />
+          <Match exactly pattern='/' render={()=> <HeroGrid heroes={this.props.heroes || []} />} />
           <Match exactly pattern='/about' component={About} />
           <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={this.props.heroes || []} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
