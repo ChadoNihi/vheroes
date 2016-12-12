@@ -66,6 +66,6 @@ module.exports = [
       }
     ]
   },
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+  postcss: [ autoprefixer({ browsers: ['> 5%'] }) ],
   target: 'node'
 }];
