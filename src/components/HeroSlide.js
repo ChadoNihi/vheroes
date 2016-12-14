@@ -2,13 +2,11 @@ import React from 'react';
 
 export default ({imgSrcs, name, shortIntro, what, quotes, see})=> {
   return (
-    <div className="mdl-card hero-card">
-      <div className="mdl-card__title">
+    <div className="mdl-card hero-card mdl-shadow--16dp">
+      <div className="mdl-card__title hero-card-title">
+        <img className='hero-img' src={imgSrcs.default} alt={`most probably a photo of ${name}`} />
         <h1 className='hero-name'>{name}</h1>
         <h6 className='hero-intro save-spaces' dangerouslySetInnerHTML={{__html: shortIntro}}></h6>
-      </div>
-      <div className="mdl-card__media">
-        <img className='hero-img' src={imgSrcs.default} alt={`most probably a photo of ${name}`} />
       </div>
       <div className="hero-what mdl-card__supporting-text" dangerouslySetInnerHTML={{__html: what}}>
       </div>
