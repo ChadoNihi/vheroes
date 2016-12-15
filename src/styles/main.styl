@@ -34,22 +34,24 @@ body, html, .hero-block
   margin: 0 auto
   width: auto
   max-width: 60em
-.hero-card *
-  z-index: 10
 .hero-card-title
-  height: 13em
+  display: block
+  max-height: 15em
   overflow: hidden
-  padding: 0
-  position: relative
-  text-shadow: 0.05em 0.05em 25px white, 0.05em 0.05em 25px white, 0.05em 0.05em 25px white
+.hero-card-title, .hero-what, .hero-quote
+  color: $text-color-fallback !important
+  color: $text-color !important
 .hero-img, .hero-thumb
   border-radius: 0.25em
 .hero-img
-  position: absolute
-  top: -10%
-  max-width: 100%
-.hero-name, .hero-intro
-  padding: 1.2em
+  float: right
+  padding-left: 1em
+  max-width: 40%
+.hero-intro
+   font-size: 120%
+.hero-what
+  font-size: 110%
+// .hero-name, .hero-intro
 // .hero-name
   // mix-blend-mode: difference
   // position: relative
