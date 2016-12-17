@@ -11,7 +11,7 @@ export default ({imgSrcs, name, shortIntro, what, quotes, see})=> {
       <div className="hero-what mdl-card__supporting-text" dangerouslySetInnerHTML={{__html: what}}>
       </div>
       {quotes.length && quotes.map((quote, i)=> {
-        return <div className='hero-quote mdl-card__supporting-text' key={i}>{quote}</div>;
+        return <div className='hero-quote mdl-card__supporting-text' dangerouslySetInnerHTML={{__html: quote}} key={i}></div>;
       })}
       <div className="mdl-card__actions">
         {see.map((opt, i)=> {

@@ -3,6 +3,8 @@ $bg-color = #464343
 $text-color = silver
 $text-color-fallback = silver
 
+body
+  font-family: 'Roboto', monospace
 body, html, .hero-block
   height: 100vh
   width: 100vw
@@ -48,9 +50,15 @@ body, html, .hero-block
   padding-left: 1em
   max-width: 40%
 .hero-intro
-   font-size: 120%
+   font-size: 125%
 .hero-what
   font-size: 110%
+.hero-quote
+  font-size: 100%
+  word-spacing: 0.1em
+  &:before
+    content: '" '
+    font-size: 255%
 // .hero-name, .hero-intro
 // .hero-name
   // mix-blend-mode: difference
