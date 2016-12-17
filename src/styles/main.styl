@@ -2,9 +2,11 @@ $global-bg-color = #3e3c3c
 $bg-color = #464343
 $text-color = silver
 $text-color-fallback = silver
+$text-link-color = #d9d9d9
 
 body
   font-family: 'Roboto', monospace
+  letter-spacing: 0.025em
 body, html, .hero-block
   height: 100vh
   width: 100vw
@@ -36,8 +38,11 @@ body, html, .hero-block
   margin: 0 auto
   width: auto
   max-width: 60em
+  a
+    color: $text-link-color
 .hero-card-title
   display: block
+  margin-bottom: 0.7em
   max-height: 15em
   overflow: hidden
 .hero-card-title, .hero-what, .hero-quote
@@ -50,15 +55,21 @@ body, html, .hero-block
   padding-left: 1em
   max-width: 40%
 .hero-intro
-   font-size: 125%
+  font-size: 95%
 .hero-what
   font-size: 110%
+  line-height: 1.3
 .hero-quote
   font-size: 100%
   word-spacing: 0.1em
   &:before
     content: '" '
     font-size: 255%
+.hero-explore-title
+  margin-top: 0.5em
+.hero-explore-item
+  display: inline-block
+  padding: 0.5em 1.1em
 // .hero-name, .hero-intro
 // .hero-name
   // mix-blend-mode: difference

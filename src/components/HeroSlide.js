@@ -14,9 +14,10 @@ export default ({imgSrcs, name, shortIntro, what, quotes, see})=> {
         return <div className='hero-quote mdl-card__supporting-text' dangerouslySetInnerHTML={{__html: quote}} key={i}></div>;
       })}
       <div className="mdl-card__actions">
+        <h4 className='hero-explore-title'>Explore:</h4>
         {see.map((opt, i)=> {
           return (
-            <span className="mdl-list__item-primary-content save-spaces" dangerouslySetInnerHTML={{__html: opt}} key={i}></span>
+            <span className="hero-explore-item save-spaces" dangerouslySetInnerHTML={{__html: opt}} key={i}></span>
           );
       })}
       </div>
