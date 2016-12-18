@@ -6,18 +6,18 @@ export default ({imgSrcs, name, shortIntro, what, quotes, see})=> {
       <div className="mdl-card__title hero-card-title">
         <img className='hero-img' src={imgSrcs.default} alt={`most probably a photo of ${name}`} />
         <h1 className='hero-name'>{name}</h1>
-        <h6 className='hero-intro save-spaces' dangerouslySetInnerHTML={{__html: shortIntro}}></h6>
+        <h6 className='hero-intro' dangerouslySetInnerHTML={{__html: shortIntro}}></h6>
       </div>
       <div className="hero-what mdl-card__supporting-text" dangerouslySetInnerHTML={{__html: what}}>
       </div>
-      {quotes.length && quotes.map((quote, i)=> {
+      {(quotes.length ? quotes.map((quote, i)=> {
         return <div className='hero-quote mdl-card__supporting-text' dangerouslySetInnerHTML={{__html: quote}} key={i}></div>;
-      })}
+      }) : "")}
       <div className="mdl-card__actions">
         <h4 className='hero-explore-title'>Explore:</h4>
         {see.map((opt, i)=> {
           return (
-            <span className="hero-explore-item save-spaces" dangerouslySetInnerHTML={{__html: opt}} key={i}></span>
+            <span className="hero-explore-item" dangerouslySetInnerHTML={{__html: opt}} key={i}></span>
           );
       })}
       </div>
