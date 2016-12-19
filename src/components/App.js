@@ -3,6 +3,7 @@ import {Link, Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero, setSortBy } from '../actions/actions';
+import {reverseSortingSuffix} from '../constants';
 import Header from './Header';
 import About from './About';
 import HeroGrid from './HeroGrid';
@@ -12,6 +13,8 @@ import HeroSlider from './HeroSlider';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.onSortChange = this.onSortChange.bind(this);
   }
 
   componentDidMount () {
@@ -19,28 +22,26 @@ class App extends React.Component {
     this.props.dispatch(fetchUser());*/
   }
 
-  onSortClick(e) {
-    if (e.currentTarget.value === this.props.sortBy) {
-
-    } else {
+  onSortChange(e) {
+    if (e.currentTarget.value !== this.props.sortBy) {
       this.props.changeSort(e.currentTarget.value);
     }
   }
 
   render() {
-    const altFactor = this.props.sortBy.endsWith('-alt') ? -1 : 1;
+    const altFactor = this.props.sortBy.endsWith(reverseSortingSuffix) ? -1 : 1;
     const sortKey = altFactor === 1 ?
-            this.props.sortBy : this.props.sortBy.substring(0, this.props.sortBy.length - '-alt'.length) ;
+            this.props.sortBy : this.props.sortBy.substring(0, this.props.sortBy.length - reverseSortingSuffix.length) ;
     const sortedHeroes = (this.props.heroes ?
             this.props.heroes.slice().sort((h1, h2)=> {
-              if (h1[this.props.sortBy] < h2[this.props.sortBy]) return -1 * altFactor;
-              else if (h1[this.props.sortBy] > h2[this.props.sortBy]) return 1 * altFactor;
+              if (h1[sortKey] < h2[sortKey]) return -1 * altFactor;
+              else if (h1[sortKey] > h2[sortKey]) return 1 * altFactor;
               else return 0;
             }) : []);
 
     return (
       <div className="mdl-layout mdl-js-layout">
-        {/*<Header onSortClick={this.onSortClick} sortBy={this.props.sortBy || 'id'} title="Vegan Heroes" subtitle="those I'm aware of" />*/}
+        <Header onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title="Vegan Heroes" subtitle="those I'm aware of" />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
