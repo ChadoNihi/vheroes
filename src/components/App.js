@@ -40,7 +40,7 @@ class App extends React.Component {
             }) : []);
 
     return (
-      <div className="mdl-layout mdl-js-layout">
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <Header onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title="Vegan Heroes" subtitle="those I'm aware of" />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
