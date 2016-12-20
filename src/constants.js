@@ -1,1 +1,1 @@
-export const reverseSortingSuffix = '-alt';
+export const reverseSortSuffix = '-alt';

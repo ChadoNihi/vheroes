@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import {reverseSortingSuffix} from '../constants';
+import {reverseSortSuffix} from '../constants';
 
 export default ({onSortChange, sortBy, subtitle, title})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
-      <span className="mdl-layout-title logo-text"><Link to="/">{title}</Link></span>
-      <span>{subtitle}</span>
+      <span className="mdl-layout-title"><Link to="/" className='logo-text'>{title}</Link>*</span>
+      {/*<span>{subtitle}</span>*/}
       <div className="mdl-layout-spacer"></div>
 
       <nav className='mdl-navigation nav-sort'>
-        <span>Sort</span>
+        {/*<span>Sort</span>*/}
         <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-id">
           <input type="radio" id="sort-opt-id" className="mdl-radio__button" name="sort-options" value="id"
               onChange={onSortChange} checked={sortBy === 'id'} />
@@ -32,6 +32,11 @@ export default ({onSortChange, sortBy, subtitle, title})=>
           <input type="radio" id={`sort-opt-name${reverseSortingSuffix}`} className="mdl-radio__button" name="sort-options" value={`name${reverseSortingSuffix}`}
               onChange={onSortChange} checked={sortBy === `name${reverseSortingSuffix}`} />
           <span className="mdl-radio__label">Z-A</span>
+        </label>
+        <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-rand">
+          <input type="radio" id="sort-opt-rand" className="mdl-radio__button" name="sort-options" value="rand"
+              onChange={onSortChange} checked={sortBy === 'rand'} />
+          <span className="mdl-radio__label">Shuffle</span>
         </label>
       </nav>
 

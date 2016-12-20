@@ -3,8 +3,10 @@ import {Link, Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero, setSortBy } from '../actions/actions';
-import {reverseSortingSuffix} from '../constants';
+import {reverseSortSuffix} from '../constants';
+import {shuffleArray} from '../utils';
 import Header from './Header';
+import Drawer from './Drawer';
 import About from './About';
 import HeroGrid from './HeroGrid';
 import HeroSlider from './HeroSlider';
@@ -13,6 +15,8 @@ import HeroSlider from './HeroSlider';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.title = "Vegan Heroes";
 
     this.onSortChange = this.onSortChange.bind(this);
   }
@@ -23,25 +27,43 @@ class App extends React.Component {
   }
 
   onSortChange(e) {
-    if (e.currentTarget.value !== this.props.sortBy) {
+    if (e.currentTarget.value === 'rand') {
+      this.props.changeSort(e.currentTarget.value + Math.random());
+    }
+    else if (e.currentTarget.value !== this.props.sortBy) {
       this.props.changeSort(e.currentTarget.value);
     }
   }
 
+  orderHeroesBySortKey() {
+    if (!this.props.heroes) return [];
+
+    let heroesCopy = this.props.heroes.slice();
+
+    if (this.props.sortBy.startsWith('rand')) {
+      shuffleArray(heroesCopy);
+    }
+    else {
+      const altFactor = this.props.sortBy.endsWith(reverseSortSuffix) ? -1 : 1;
+      const sortKey = altFactor === 1 ?
+              this.props.sortBy : this.props.sortBy.substring(0, this.props.sortBy.length - reverseSortSuffix.length) ;
+      heroesCopy.sort((h1, h2)=> {
+        if (h1[sortKey] < h2[sortKey]) return -1 * altFactor;
+        else if (h1[sortKey] > h2[sortKey]) return 1 * altFactor;
+        else return 0;
+      });
+    }
+
+    return heroesCopy;
+  }
+
   render() {
-    const altFactor = this.props.sortBy.endsWith(reverseSortingSuffix) ? -1 : 1;
-    const sortKey = altFactor === 1 ?
-            this.props.sortBy : this.props.sortBy.substring(0, this.props.sortBy.length - reverseSortingSuffix.length) ;
-    const sortedHeroes = (this.props.heroes ?
-            this.props.heroes.slice().sort((h1, h2)=> {
-              if (h1[sortKey] < h2[sortKey]) return -1 * altFactor;
-              else if (h1[sortKey] > h2[sortKey]) return 1 * altFactor;
-              else return 0;
-            }) : []);
+    const sortedHeroes = this.orderHeroesBySortKey();
 
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <Header onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title="Vegan Heroes" subtitle="those I'm aware of" />
+        <Header onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={this.title} subtitle="those I'm aware of" />
+        <Drawer title={this.title} />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
