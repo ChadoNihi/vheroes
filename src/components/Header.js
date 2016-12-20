@@ -7,7 +7,7 @@ export default ({onSortChange, sortBy, subtitle, title})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
-      <span className="mdl-layout-title"><Link to="/">{title}</Link></span>
+      <span className="mdl-layout-title logo-text"><Link to="/">{title}</Link></span>
       <span>{subtitle}</span>
       <div className="mdl-layout-spacer"></div>
 
