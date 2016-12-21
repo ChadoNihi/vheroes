@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 export default ({title})=>
   <div className="mdl-layout__drawer">
-    <span className="mdl-layout-title logo-text">{title}*</span>
+    <span className="mdl-layout-title logo-text">{title}</span>
     <nav className="mdl-navigation">
       <Link to="/about" className="mdl-navigation__link">About</Link>
     </nav>
