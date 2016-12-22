@@ -12,7 +12,9 @@ export default ()=> {
         You don't need to be a vegan to enjoy the content.
       </div>
       <div className="mdl-card__actions">
-
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          Contact
+        </a>
       </div>
     </div>
   );
