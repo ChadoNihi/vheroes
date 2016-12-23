@@ -17,7 +17,7 @@ export default ()=> {
         You don't need to be a vegan to enjoy the content (the funny thing BTW, one doesn't need to be a vegan <em>personally</em> to end up the list.)
       </div>
       <div className="mdl-card__actions">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href='#'>
+        <a className="mdl-button mdl-js-button mdl-js-ripple-effect" href='#'>
           Contact
         </a>
       </div>
