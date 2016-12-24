@@ -5,11 +5,13 @@ import HeroSlide from './HeroSlide'
 export default ({heroes, params})=> {
   const settings = {
     dots: false,
+    draggable: false,
     infinite: true,
     initialSlide: params.heroId || 0,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    swipe: false
   };
   return (
     <Slider {...settings}>
