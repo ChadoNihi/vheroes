@@ -4,8 +4,8 @@ export default ()=> {
   return (
     <div className="mdl-card hero-card mdl-shadow--16dp">
       <div className="mdl-card__title hero-card-title">
-        <h2 className='mdl-card__title-text'>Expand your think space</h2>
-        <h3 className='mdl-card__subtitle-text'>Consider others</h3>
+        <h1 className='hero-name'>Expand your think space</h1>
+        <h6 className='hero-intro'>Consider others</h6>
       </div>
       <div className="hero-what mdl-card__supporting-text">
         Irrespective of what you thinks about this website, you should definetely familiarize oneself with the work of exceptional persons presented here.
