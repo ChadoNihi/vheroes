@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import {reverseSortSuffix} from '../constants';
 
-export default ({onSortChange, sortBy, subtitle, title})=>
+export default ({onSortChange, sortBy, subtitle, title, location})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
@@ -11,7 +11,7 @@ export default ({onSortChange, sortBy, subtitle, title})=>
       {/*<span>{subtitle}</span>*/}
       <div className="mdl-layout-spacer"></div>
 
-      <nav className='mdl-navigation nav-sort'>
+      {location.pathname === '/' ? (<nav className='mdl-navigation nav-sort'>
         {/*<span>Sort</span>*/}
         <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-id">
           <input type="radio" id="sort-opt-id" className="mdl-radio__button" name="sort-options" value="id"
@@ -38,7 +38,7 @@ export default ({onSortChange, sortBy, subtitle, title})=>
               onChange={onSortChange} checked={sortBy === 'rand'} />
           <span className="mdl-radio__label">Shuffle</span>
         </label>
-      </nav>
+      </nav>) : null}
 
     </div>
   </header>;

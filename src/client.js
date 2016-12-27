@@ -14,7 +14,7 @@ require('./styles/main.styl');
 const store = configureStore(undefined, window.__PRELOADED_STATE__);
 //const history = syncHistoryWithStore(browserHistory, store);
 
-document.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener('DOMContentLoaded', ({router, location})=> {
   render((
     <Provider store={store}>
       <BrowserRouter>

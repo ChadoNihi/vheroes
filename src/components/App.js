@@ -60,10 +60,9 @@ class App extends React.Component {
 
   render() {
     const sortedHeroes = this.orderHeroesBySortKey();
-
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <Header onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={this.title} subtitle="those I'm aware of" />
+        <Match pattern='/' render={(props)=> <Header {...props} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={this.title} subtitle="those I'm aware of" />} />
         <Drawer title={this.title} />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
