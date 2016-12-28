@@ -2,7 +2,7 @@ import React  from 'react';
 import {Link, Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
-import { changeHero, setSortBy } from '../actions/actions';
+import { changeHero, changeDragLock, setSortBy } from '../actions/actions';
 import {reverseSortSuffix} from '../constants';
 import {shuffleArray} from '../utils';
 import Header from './Header';
@@ -19,12 +19,17 @@ class App extends React.Component {
 
     this.title = "Vegan Heroes";
 
+    this.onDragLockChange = this.onDragLockChange.bind(this);
     this.onSortChange = this.onSortChange.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     /*this.props.dispatch(fetchPolls());
     this.props.dispatch(fetchUser());*/
+  }
+
+  onDragLockChange() {
+    this.props.onDragLockChange(!this.props.isDragLocked);
   }
 
   onSortChange(e) {
@@ -68,7 +73,7 @@ class App extends React.Component {
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
-          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} />} />
+          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
           {/*<Footer />*/}
@@ -90,6 +95,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeSort: (sortBy) => {
       dispatch(setSortBy(sortBy));
+    },
+    onChangeDragLock: (bool) => {
+      dispatch(changeDragLock(bool));
     },
     onNextHero: (currId) => {
       dispatch(changeHero(currId+1));

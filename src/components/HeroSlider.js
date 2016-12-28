@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import HeroSlide from './HeroSlide'
 
-export default ({heroes, params})=> {
+export default ({heroes, isDragLocked, onDragLockChange, params})=> {
   const settings = {
     dots: false,
     draggable: false,
@@ -14,10 +14,16 @@ export default ({heroes, params})=> {
     swipe: false
   };
   return (
-    <Slider {...settings}>
-      {heroes.map( (hero)=> {
-        return <div key={hero.id}><HeroSlide {...hero} /></div>;
-      })}
-    </Slider>
+    <div>
+      <label className="lock-toggle mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="drag-lock">
+        <input type="checkbox" id="drag-lock" className="mdl-icon-toggle__input" checked={isDragLocked} onChange={onDragLockChange} />
+        <i className="mdl-icon-toggle__label fa fa-lock" aria-hidden="false"></i>
+      </label>
+      <Slider {...settings}>
+        {heroes.map( (hero)=> {
+          return <div key={hero.id}><HeroSlide {...hero} /></div>;
+        })}
+      </Slider>
+    </div>
   );
 };

@@ -11,7 +11,7 @@ import path from 'path';
 //import routes from './src/routes';
 import App from './src/components/App';
 import configureStore from './src/store/configureStore';
-import {changeHero, setHeroes, setSortBy} from './src/actions/actions';
+import {changeDragLock, changeHero, setHeroes, setSortBy} from './src/actions/actions';
 
 const app = new Express(),
       port = process.env.PORT || 8080;
@@ -59,6 +59,7 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
     const store = configureStore();
     store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
     store.dispatch(changeHero(0));
+    store.dispatch(changeDragLock(false));
     store.dispatch(setSortBy('id'));
 
     let markup = ReactDOMServer.renderToString(
