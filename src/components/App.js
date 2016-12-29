@@ -96,7 +96,7 @@ const mapDispatchToProps = (dispatch) => {
     changeSort: (sortBy) => {
       dispatch(setSortBy(sortBy));
     },
-    onChangeDragLock: (bool) => {
+    onDragLockChange: (bool) => {
       dispatch(changeDragLock(bool));
     },
     onNextHero: (currId) => {
