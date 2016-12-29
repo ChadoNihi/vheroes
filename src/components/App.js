@@ -68,12 +68,12 @@ class App extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <span id='top'></span>
-        <Match pattern='/' render={(props)=> <Header {...props} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={this.title} subtitle="those I'm aware of" />} />
+        <Match pattern='/' render={(props)=> <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={this.title} subtitle="those I'm aware of" />} />
         <Drawer title={this.title} />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
-          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} />} />
+          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
           {/*<Footer />*/}
@@ -87,6 +87,7 @@ const mapStateToProps = (state) => {
   return {
     heroes: state.heroes,
     heroInFocus: state.heroInFocus,
+    isDragLocked: state.isDragLocked,
     sortBy: state.sortBy
   };
 }

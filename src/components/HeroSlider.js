@@ -2,22 +2,19 @@ import React from 'react';
 import Slider from 'react-slick';
 import HeroSlide from './HeroSlide'
 
-export default ({heroes, isDragLocked, onDragLockChange, params})=> {
+export default ({heroes, isDragLocked, params})=> {
   const settings = {
     dots: false,
-    draggable: false,
+    draggable: !isDragLocked,
     infinite: true,
     initialSlide: params.heroId || 0,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    swipe: false
+    swipe: true
   };
   return (
     <div>
-      <button className="lock-toggle btn-wo-style" onClick={onDragLockChange}>
-        <i className={"fa fa-lock fa-lg"+(isDragLocked ? " active" : "")} aria-hidden="false"></i>
-      </button>
       <Slider {...settings}>
         {heroes.map( (hero)=> {
           return <div key={hero.id}><HeroSlide {...hero} /></div>;

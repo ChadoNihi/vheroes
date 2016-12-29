@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import {reverseSortSuffix} from '../constants';
 
-export default ({onSortChange, sortBy, subtitle, title, location})=>
+export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, subtitle, title, location})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
@@ -39,6 +39,17 @@ export default ({onSortChange, sortBy, subtitle, title, location})=>
           <span className="mdl-radio__label">Shuffle</span>
         </label>
       </nav>) : null}
+
+      {location.pathname.startsWith('/hero/') ?
+        <div className='mdl-navigation'>
+          <button className="lock-toggle btn-wo-style" id='drag-lock' onClick={onDragLockChange}>
+            <i className={"fa fa-lock fa-lg"+(isDragLocked ? " active" : "")} aria-hidden="false"></i>
+          </button>
+          <div className="mdl-tooltip" data-mdl-for="drag-lock">
+            Locks dragging slides, enabling thus selecting text.
+          </div>
+        </div>
+      : null}
 
     </div>
   </header>;
