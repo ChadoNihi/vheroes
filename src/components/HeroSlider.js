@@ -15,10 +15,9 @@ export default ({heroes, isDragLocked, onDragLockChange, params})=> {
   };
   return (
     <div>
-      <label className="lock-toggle mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" htmlFor="drag-lock">
-        <input type="checkbox" id="drag-lock" className="mdl-icon-toggle__input" checked={isDragLocked} onChange={onDragLockChange} />
-        <i className="mdl-icon-toggle__label fa fa-lock" aria-hidden="false"></i>
-      </label>
+      <button className="lock-toggle btn-wo-style" onClick={onDragLockChange}>
+        <i className={"fa fa-lock fa-lg"+(isDragLocked ? " active" : "")} aria-hidden="false"></i>
+      </button>
       <Slider {...settings}>
         {heroes.map( (hero)=> {
           return <div key={hero.id}><HeroSlide {...hero} /></div>;

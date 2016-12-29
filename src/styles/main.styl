@@ -1,5 +1,7 @@
 $global-bg-color = #3e3c3c
 $bg-color = #fbfafa
+$active-lock-color = #616161
+$inactive-lock-color = gainsboro
 $text-color = #928d8a
 $text-color-fallback = #928d8a
 $text-link-color = #d0b487
@@ -78,9 +80,14 @@ a
   max-width: 100%
 
 .lock-toggle
+  color: $inactive-lock-color
+  display: inline-block
   position: absolute
   top: 0.5em
   left: 30%
+  z-index: 10
+.active
+  color: $active-lock-color
 
 .hero-card
   background: $bg-color
@@ -161,5 +168,8 @@ a
     position: relative
     top: 8%
 
+.btn-wo-style
+  background: none
+  border: none
 .save-spaces
   white-space: pre-wrap
