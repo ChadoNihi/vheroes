@@ -82,10 +82,9 @@ a
 .lock-toggle
   color: $inactive-lock-color
   display: inline-block
-  position: absolute
-  top: -3.7em
-  right: 10%
-  z-index: 10
+  &>span
+    color: $active-lock-color
+    margin-left: 0.5em
 .active
   color: $active-lock-color
 
