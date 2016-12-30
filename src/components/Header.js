@@ -44,7 +44,7 @@ export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, subtitle,
         <div className='mdl-navigation'>
           <button className="lock-toggle btn-wo-style" onClick={onDragLockChange}>
             <i className={"fa fa-lock fa-lg"+(isDragLocked ? " active" : "")} aria-hidden="false"></i>
-            <span className="">
+            <span>
               {isDragLocked ? "Unlock " : "Lock "} dragging
             </span>
           </button>
