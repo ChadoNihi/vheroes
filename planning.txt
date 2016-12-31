@@ -12,3 +12,5 @@ todo:
  - id out of bounds
  - localStorage?
  https://medium.com/@chvanikoff/phoenix-react-love-story-reph-1-c68512cfe18#.fa8enezas
+
+ social, contrast
