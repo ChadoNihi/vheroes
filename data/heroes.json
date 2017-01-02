@@ -64,6 +64,24 @@
         "<a href='http://theaccidentalactivist.weebly.com/' target='_blank'>The Accidental Activist</a> (the book's website)"
       ],
       "tags": ["founder", "activist", "writer", "blogger", "vegan outreach"]
+    },
+    {
+      "id": 3,
+      "name": "Brian Tomasik",
+      "imgSrcs": {
+        "thumb": "https://i2.wp.com/briantomasik.com/wp-content/uploads/2014/10/Brian_March2014.jpg?resize=300%2C225",
+        "default": "https://i2.wp.com/briantomasik.com/wp-content/uploads/2014/10/Brian_March2014.jpg?resize=300%2C225"
+      },
+      "shortIntro": "A person behind Essays On Reducing Suffering. Argues for moral urgency of wild-animal suffering and caution towards digital sentience. Co-founder of and researcher at the Foundational Research Institute.",
+      "lang": ["English"],
+      "what": "Brian's ",
+      "quotes": [],
+      "see": [
+        "<a href='https://youtu.be/P5mZz07SJZI'>The Movement to Reduce Wild-Animal Suffering</a> presentation on YouTube",
+        "<a href='http://reducing-suffering.org/' target='_blank'>Essays On Reducing Suffering</a> website",
+        "<a href='http://foundational-research.org/' target='_blank'>Foundational Research Institute</a>"
+      ],
+      "tags": ["founder", "activist", "writer", "researcher", "blogger", "AI", "futurist", "childless", "negative utilitarian", "suffering-focused ethics"]
     }
   ]
 }

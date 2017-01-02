@@ -10,6 +10,7 @@ import Drawer from './Drawer';
 import About from './About';
 import HeroGrid from './HeroGrid';
 import HeroSlider from './HeroSlider';
+import SharePanel from './SharePanel';
 import ToTheTopBtn from './ToTheTopBtn';
 //import Footer from './Footer';
 
@@ -74,6 +75,7 @@ class App extends React.Component {
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
           <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
+          <Match pattern='/(hero)?' component={SharePanel} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
           {/*<Footer />*/}
