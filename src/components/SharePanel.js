@@ -11,3 +11,16 @@ const {
   PinterestShareButton,
   VKShareButton
 } = ShareButtons;
+
+export default ()=> {
+  return (
+    <div>
+      <FacebookShareButton />
+      <TwitterShareButton />
+      <GooglePlusShareButton />
+      <VKShareButton />
+      <LinkedinShareButton />
+      <PinterestShareButton />
+    </div>
+  )
+};
