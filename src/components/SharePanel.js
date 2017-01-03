@@ -25,11 +25,11 @@ export default ({pathname})=> {
   const url = appUrl + pathname;
   return (
     <div className='share-panel'>
-      <FacebookShareButton url={url}>
+      <FacebookShareButton url={url} description={} title={}>
         <FacebookIcon size={30} />
       </FacebookShareButton>
 
-      <TwitterShareButton url={url}>
+      <TwitterShareButton url={url} hashtags={} title={} {/*via={}*/}>
         <TwitterIcon size={30} />
       </TwitterShareButton>
 
@@ -37,15 +37,15 @@ export default ({pathname})=> {
         <GooglePlusIcon size={30} />
       </GooglePlusShareButton>
 
-      <VKShareButton url={url}>
+      <VKShareButton url={url} description={} title={}>
         <VKIcon size={30} />
       </VKShareButton>
 
-      <LinkedinShareButton url={url}>
+      <LinkedinShareButton url={url} description={} title={}>
         <LinkedinIcon size={30} />
       </LinkedinShareButton>
 
-      <PinterestShareButton url={url} media={}>
+      <PinterestShareButton url={url} description={} media={'test'}>
         <PinterestIcon size={30} />
       </PinterestShareButton>
     </div>
