@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import HeroSlide from './HeroSlide'
 
-export default ({heroes, isDragLocked, params})=> {
+export default ({heroes, isDragLocked, params, pathname})=> {
   const settings = {
     dots: false,
     draggable: !isDragLocked,
@@ -19,6 +19,7 @@ export default ({heroes, isDragLocked, params})=> {
         {heroes.map( (hero)=> {
           return <div key={hero.id}><HeroSlide {...hero} /></div>;
         })}
+        <SharePanel description={} media={'test'} pathname={pathname} title={'Meet notable contributors to a suffering-free world'} />
       </Slider>
     </div>
   );

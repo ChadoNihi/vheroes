@@ -18,6 +18,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.description = "TODO";
+
     this.title = "Vegan Heroes";
 
     this.onDragLockChange = this.onDragLockChange.bind(this);
@@ -75,7 +77,7 @@ class App extends React.Component {
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
           <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
-          <Match pattern='/(hero)?' component={SharePanel} />
+          <Match pattern='/(hero/:heroId?)?' render={(props)=> <SharePanel description={this.description} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
           {/*<Footer />*/}

@@ -21,7 +21,7 @@ const LinkedinIcon = generateShareIcon('linkedin');
 const PinterestIcon = generateShareIcon('pinterest');
 const VKIcon = generateShareIcon('vk');
 
-export default ({description, hashtags, media, pathname, title})=> {
+export default ({description, media, pathname, title})=> {
   const url = appUrl + pathname;
   return (
     <div className='share-panel'>
@@ -29,7 +29,7 @@ export default ({description, hashtags, media, pathname, title})=> {
         <FacebookIcon size={30} />
       </FacebookShareButton>
 
-      <TwitterShareButton url={url} hashtags={hashtags} title={title} {/*via={}*/}>
+      <TwitterShareButton url={url} {/*hashtags={hashtags}*/} title={title} {/*via={}*/}>
         <TwitterIcon size={30} />
       </TwitterShareButton>
 
