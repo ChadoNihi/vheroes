@@ -3,7 +3,7 @@ import {
   ShareButtons,
   generateShareIcon
 } from 'react-share';
-import {appUrl} from '../constants';
+import {baseUrl} from '../constants';
 
 const {
   FacebookShareButton,
@@ -22,7 +22,7 @@ const PinterestIcon = generateShareIcon('pinterest');
 const VKIcon = generateShareIcon('vk');
 
 export default ({description, hashtags, media, pathname, title})=> {
-  const url = appUrl + pathname;
+  const url = baseUrl + pathname;
   return (
     <div className='share-panel'>
       <FacebookShareButton url={url} description={description} title={title}>

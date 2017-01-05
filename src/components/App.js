@@ -70,13 +70,13 @@ class App extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <span id='top'></span>
-        <Match pattern='/' render={(props)=> <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={siteName} subtitle="those I'm aware of" />} />
+        <Match pattern='/' render={(props)=> <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={siteName} />} />
         <Drawer title={siteName} />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
           <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
-          <Match pattern='/(hero/:heroId?)?' render={(props)=> <SharePanel description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
+          <Match exactly pattern='/' render={()=> <SharePanel pathname={'/'} description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
           {/*<Footer />*/}

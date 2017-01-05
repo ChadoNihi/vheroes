@@ -3,12 +3,12 @@ import { Link } from 'react-router';
 
 import {reverseSortSuffix} from '../constants';
 
-export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, subtitle, title, location})=>
+export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, location})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
       <span className="mdl-layout-title"><Link to="/" className='logo-text'>{title}</Link><span className='mark-sign'>*</span></span>
-      {/*<span>{subtitle}</span>*/}
+      
       <div className="mdl-layout-spacer"></div>
 
       {location.pathname === '/' ? (<nav className='mdl-navigation nav-sort'>

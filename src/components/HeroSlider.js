@@ -4,7 +4,7 @@ import HeroSlide from './HeroSlide';
 import SharePanel from './SharePanel';
 import {siteName} from '../constants';
 
-export default ({heroes, isDragLocked, params, pathname})=> {
+export default ({heroes, isDragLocked, location, params})=> {
   const settings = {
     dots: false,
     draggable: !isDragLocked,
@@ -22,7 +22,7 @@ export default ({heroes, isDragLocked, params, pathname})=> {
           return <div key={hero.id}><HeroSlide {...hero} /></div>;
         })}
       </Slider>
-      <SharePanel description={siteName+' is a website featuring bright people whose primary cause contributes to reducing suffering in the world.'} media={'test'} pathname={pathname} title={'Meet '+heroes[params.heroId || 0].name+' | '+siteName} />
+      <SharePanel description={siteName+' is a website featuring bright people whose primary cause contributes to reducing suffering in the world.'} media={'test'} pathname={location.pathname} title={'Meet '+heroes[params.heroId || 0].name+' | '+siteName} />
     </div>
   );
 };
