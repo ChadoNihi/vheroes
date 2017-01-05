@@ -3,7 +3,7 @@ import {Link, Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero, changeDragLock, setSortBy } from '../actions/actions';
-import {reverseSortSuffix} from '../constants';
+import {reverseSortSuffix, siteName} from '../constants';
 import {shuffleArray} from '../utils';
 import Header from './Header';
 import Drawer from './Drawer';
@@ -18,9 +18,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.description = "TODO";
-
-    this.title = "Vegan Heroes";
+    this.description = "A website featuring bright people whose primary cause contributes to reducing suffering in the world.";
+    this.hashtags = ['inspiration', 'vegan'];
 
     this.onDragLockChange = this.onDragLockChange.bind(this);
     this.onSortChange = this.onSortChange.bind(this);
@@ -71,13 +70,13 @@ class App extends React.Component {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <span id='top'></span>
-        <Match pattern='/' render={(props)=> <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={this.title} subtitle="those I'm aware of" />} />
-        <Drawer title={this.title} />
+        <Match pattern='/' render={(props)=> <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={siteName} subtitle="those I'm aware of" />} />
+        <Drawer title={siteName} />
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
           <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
-          <Match pattern='/(hero/:heroId?)?' render={(props)=> <SharePanel description={this.description} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
+          <Match pattern='/(hero/:heroId?)?' render={(props)=> <SharePanel description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
           {/*<Footer />*/}

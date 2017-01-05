@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
-import HeroSlide from './HeroSlide'
+import HeroSlide from './HeroSlide';
+import SharePanel from './SharePanel';
+import {siteName} from '../constants';
 
 export default ({heroes, isDragLocked, params, pathname})=> {
   const settings = {
@@ -19,8 +21,8 @@ export default ({heroes, isDragLocked, params, pathname})=> {
         {heroes.map( (hero)=> {
           return <div key={hero.id}><HeroSlide {...hero} /></div>;
         })}
-        <SharePanel description={} media={'test'} pathname={pathname} title={'Meet notable contributors to a suffering-free world'} />
       </Slider>
+      <SharePanel description={siteName+' is a website featuring bright people whose primary cause contributes to reducing suffering in the world.'} media={'test'} pathname={pathname} title={'Meet '+heroes[params.heroId || 0].name+' | '+siteName} />
     </div>
   );
 };
