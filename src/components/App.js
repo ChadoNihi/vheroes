@@ -33,7 +33,7 @@ class App extends React.Component {
 
   afterHeroChange(newI) {
     this.props.changeHero(newI);
-    this.props.histo
+    this.props.history.push('/');
   }
 
   onDragLockChange() {
