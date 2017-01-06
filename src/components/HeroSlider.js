@@ -4,8 +4,9 @@ import HeroSlide from './HeroSlide';
 import SharePanel from './SharePanel';
 import {siteName} from '../constants';
 
-export default ({heroes, isDragLocked, location, params})=> {
+export default ({afterHeroChange, heroes, isDragLocked, location, params})=> {
   const settings = {
+    afterChange: afterHeroChange,
     dots: false,
     draggable: !isDragLocked,
     infinite: true,

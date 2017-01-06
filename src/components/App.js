@@ -21,6 +21,7 @@ class App extends React.Component {
     this.description = "A website featuring bright people whose primary cause contributes to reducing suffering in the world.";
     this.hashtags = ['inspiration', 'vegan'];
 
+    this.afterHeroChange = this.afterHeroChange.bind(this);
     this.onDragLockChange = this.onDragLockChange.bind(this);
     this.onSortChange = this.onSortChange.bind(this);
   }
@@ -28,6 +29,11 @@ class App extends React.Component {
   componentDidMount() {
     /*this.props.dispatch(fetchPolls());
     this.props.dispatch(fetchUser());*/
+  }
+
+  afterHeroChange(newI) {
+    this.props.changeHero(newI);
+    this.props.histo
   }
 
   onDragLockChange() {
@@ -75,7 +81,7 @@ class App extends React.Component {
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
-          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
+          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
           <Match exactly pattern='/' render={()=> <SharePanel pathname={'/'} description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
@@ -103,11 +109,8 @@ const mapDispatchToProps = (dispatch) => {
     onDragLockChange: (bool) => {
       dispatch(changeDragLock(bool));
     },
-    onNextHero: (currId) => {
+    changeHero: (currId) => {
       dispatch(changeHero(currId+1));
-    },
-    onPrevHero: (currId) => {
-      dispatch(changeHero(currId-1));
     }
   }
 }
