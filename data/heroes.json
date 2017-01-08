@@ -51,7 +51,7 @@
       },
       "shortIntro": "Co-founder and past Executive Director of Vegan Outreach. Director of Engagement and Outreach at Farm Sanctuary. Co-authored \"The Animal Activist's Handbook\". Author of \"The Accidental Activist\".",
       "lang": ["English"],
-      "what": "Matt has been an inspiration for effective animal activists for more than 20 years. In 1993, together with <a href='' target='_blank'>Jack Norris</a>, Matt co-founded Vegan Outreach, a famous, <a href='https://animalcharityevaluators.org/research/charity-review/vegan-outreach' target='_blank'>standout</a> charity promoting vegan ethics. Today he continues his work on reducing human-caused animal suffering by devoting his time to Farm Sanctuary and writing.",
+      "what": "Matt has been an inspiration for effective animal activists for more than 20 years. In 1993, together with <a href='http://jacknorrisrd.com/about/' target='_blank'>Jack Norris</a>, Matt co-founded Vegan Outreach, a famous, <a href='https://animalcharityevaluators.org/research/charity-review/vegan-outreach' target='_blank'>standout</a> charity promoting vegan ethics. Today he continues his work on reducing human-caused animal suffering by devoting his time to Farm Sanctuary and writing.",
       "quotes": [
         "The single most important lesson I’ve learned in the past twenty years is that the irreducible heart of what matters is suffering. Back then, even though I was absolutely sure I knew everything, I really didn’t know anything about suffering. Since then, though, I’ve developed a chronic disease and experienced times when I thought I was going to die, times when I wished I would die. Back then, I worried about abstractions and words and principles; I argued about exploitation, oppression, liberation. I didn’t take suffering seriously. Now, knowing what suffering really is, and knowing how much there is in the world, all my previous concerns seem, well . . . to put it kindly . . . ridiculous.",
         "Veganism is important, not as an end in itself, but as a powerful tool for opposing the horrors of factory farms and industrial slaughterhouses."
@@ -72,13 +72,18 @@
         "thumb": "https://i2.wp.com/briantomasik.com/wp-content/uploads/2014/10/Brian_March2014.jpg?resize=300%2C225",
         "default": "https://i2.wp.com/briantomasik.com/wp-content/uploads/2014/10/Brian_March2014.jpg?resize=300%2C225"
       },
-      "shortIntro": "A person behind Essays On Reducing Suffering. Argues for moral urgency of wild-animal suffering and caution towards digital sentience. Co-founder of and researcher at the Foundational Research Institute.",
+      "shortIntro": "Person behind Essays On Reducing Suffering. Argues for moral urgency of wild-animal suffering and caution towards digital sentience. Co-founder of and researcher at the Foundational Research Institute.",
       "lang": ["English"],
-      "what": "Brian's ",
-      "quotes": [],
+      "what": "Brian's persuasive and clear argumentation, scientific rigor, and honesty make him a very contagious thinker; at least once you become accustomed with unconventional ideas he deals with -- from <a href='http://reducing-suffering.org/why-activists-should-consider-making-lots-of-money/'>earn-to-give</a> effective altruism and wild-animal suffering to insect and digital <a href='http://reducing-suffering.org/#Consciousness'>sentience</a>. Brian's overarching <a href='https://youtu.be/RyA_eF7W02s'>concern</a> is suffering reduction. After pursuing earn-to-give strategy working on Microsoft's Bing, he co-founded the <a href='https://foundational-research.org/'>Foundational Research Institute</a>, 'a charity that explores the best ways to reduce suffering in the future'. He also argues for <a href='http://reducing-suffering.org/the-value-of-wikipedia-contributions-in-social-sciences/'>contributing to Wikipedia</a> on social sciences and is a <a href='https://en.wikipedia.org/wiki/User:Brian_Tomasik'>contributor</a> himself.",
+      "quotes": [
+        "Suffering is always experienced in earnest, whether inflicted in sport, on a factory farm, or in the wild. Nature isn't an abstraction. It's not a laboratory, tourist attraction, or metaphor. Is animal suffering acceptable, given that billions experience it in earnest?"
+      ],
       "see": [
         "<a href='https://youtu.be/P5mZz07SJZI'>The Movement to Reduce Wild-Animal Suffering</a> presentation on YouTube",
         "<a href='http://reducing-suffering.org/' target='_blank'>Essays On Reducing Suffering</a> website",
+        "<a href='http://everydayutilitarian.com/essays/interview-with-brian-tomasik/'>Interview with Brian Tomasik</a> on Everyday Utilitarian (2014)",
+        "<a href='http://reducing-suffering.org/medicine-vs-deep-ecology/#Medicine_analogy'>Medicine analogy</a> for interventions in wild nature",
+        "<a href='http://reducing-suffering.org/why-vegans-should-care-about-suffering-in-nature/'>Why Vegans Should Care about Suffering in Nature</a>",
         "<a href='http://foundational-research.org/' target='_blank'>Foundational Research Institute</a>"
       ],
       "tags": ["founder", "activist", "writer", "researcher", "blogger", "AI", "futurist", "childless", "negative utilitarian", "suffering-focused ethics"]
