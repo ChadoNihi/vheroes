@@ -15,6 +15,10 @@ import ToTheTopBtn from './ToTheTopBtn';
 //import Footer from './Footer';
 
 class App extends React.Component {
+  // static contextTypes = {
+  //   router: PropTypes.object
+  // };
+
   constructor(props) {
     super(props);
 
@@ -33,8 +37,7 @@ class App extends React.Component {
 
   afterHeroChange(newI) {
     this.props.changeHero(newI);
-    console.log(this.context.transitionTo);
-    console.log(this.context.history);
+    this.context.router.transitionTo('/hero/'+newI);
     //this.props.history.push('/');
   }
 
@@ -93,6 +96,10 @@ class App extends React.Component {
     );
   }
 }
+
+App.contextTypes = {
+  router: React.PropTypes.object
+};
 
 const mapStateToProps = (state) => {
   return {
