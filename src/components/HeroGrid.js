@@ -1,16 +1,26 @@
 import React from 'react';
 import HeroCell from './HeroCell';
+import MasonryLayout from 'react-masonry-layout';
 
-export default ({heroes})=> {
+const sizes = [
+  { columns: 1, gutter: 10 },
+  { mq: '600', columns: 3, gutter: 20 },
+  { mq: '1024px', columns: 4, gutter: 30 }
+];
+
+const HeroGrid = ({heroes})=> {
   return (
-    <div className="mdl-grid">
+    <MasonryLayout id='hero-grid' infiniteScrollDisabled={true} sizes={sizes}>
       {heroes.map(hero=>{
-        return (
-          <div key={hero.id} className="mdl-cell mdl-cell--4-col mdl-cell--3-col-phone">
-            <HeroCell heroId={hero.id} heroName={hero.name} imgSrc={hero.imgSrcs.thumb} />
-          </div>
-        );
+        return <HeroCell heroId={hero.id} heroName={hero.name} imgSrc={hero.imgSrcs.thumb} />;
       })}
-    </div>
+    </MasonryLayout>
   );
 };
+
+HeroGrid.defaultProps = {
+  maxCount: 5,
+  perPage: 10
+};
+
+export default HeroGrid;
