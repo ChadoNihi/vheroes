@@ -3,15 +3,17 @@ import { Link } from 'react-router';
 
 import {reverseSortSuffix} from '../constants';
 
+const rePathForWhenToShowSort = /^/(#.*)?$/;
+
 export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, location})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
       <span className="mdl-layout-title"><Link to="/" className='logo-text'>{title}</Link><span className='mark-sign'>*</span></span>
-      
+
       <div className="mdl-layout-spacer"></div>
 
-      {location.pathname === '/' ? (<nav className='mdl-navigation nav-sort'>
+      {rePathForWhenToShowSort.test(location.pathname) ? (<nav className='mdl-navigation nav-sort'>
         {/*<span>Sort</span>*/}
         <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-id">
           <input type="radio" id="sort-opt-id" className="mdl-radio__button" name="sort-options" value="id"

@@ -4,15 +4,15 @@ import MasonryLayout from 'react-masonry-layout';
 
 const sizes = [
   { columns: 1, gutter: 10 },
-  { mq: '600', columns: 3, gutter: 20 },
-  { mq: '1024px', columns: 4, gutter: 30 }
+  { mq: '700px', columns: 2, gutter: 26 },
+  { mq: '1104px', columns: 3, gutter: 24 }
 ];
 
 const HeroGrid = ({heroes})=> {
   return (
     <MasonryLayout id='hero-grid' infiniteScrollDisabled={true} sizes={sizes}>
-      {heroes.map(hero=>{
-        return <HeroCell heroId={hero.id} heroName={hero.name} imgSrc={hero.imgSrcs.thumb} />;
+      {heroes.map((hero, i)=>{
+        return <HeroCell key={i} heroId={hero.id} heroName={hero.name} imgSrc={hero.imgSrcs.thumb} />;
       })}
     </MasonryLayout>
   );

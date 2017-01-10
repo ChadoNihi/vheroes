@@ -13,4 +13,4 @@ todo:
  - localStorage?
  https://medium.com/@chvanikoff/phoenix-react-love-story-reph-1-c68512cfe18#.fa8enezas
 
- social, contrast
+ polyfills for https://github.com/callmecavs/bricks.js, contrast
