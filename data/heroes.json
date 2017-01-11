@@ -95,13 +95,36 @@
         "thumb": "https://i.ytimg.com/vi/Vo4LEtu1lrg/maxresdefault.jpg",
         "default": "https://i.ytimg.com/vi/Vo4LEtu1lrg/maxresdefault.jpg"
       },
-      "shortIntro": "Logic and moral philosophy professor at the University of Santiago de Compostela. Antispeciesist activist. Argues for interventions in wild nature in the interest of animals.",
+      "shortIntro": "Antispeciesist activist. Co-founder of Animal Ethics. Argues for interventions in wild nature in the interest of animals. Logic and moral philosophy prof. at the University of Santiago de Compostela.",
       "lang": ["English", "Spanish"],
+      "what": "An influential thinker on issues of speciesism and prevailing disvalue in wild nature. Besides challenging academia and idealistic views on nature in his writings, Oscar gives public talks . Writes also in Spanish.",
+      "quotes": [],
+      "see": [
+        "<a href='https://youtu.be/cZ0XTofuGmY'>Why animal suffering is overwhelmingly prevalent in nature</a> presentation",
+        "<a href='http://www.raco.cat/index.php/LEAP/article/download/294784/383317'>Zoopolis, Intervention, and the State of Nature</a>",
+        "Must-watch for animal advocates: <a href=''>Different Strategies to Defend Nonhuman Animals & to Challenge Speciesism</a>",
+        "article <a href='https://animalcharityevaluators.org/blog/why-the-situation-of-animals-in-the-wild-should-concern-us/'>Why the Situation of Animals in the Wild Should Concern Us</a>"
+        "Oscar's <a href='https://usc-es.academia.edu/OscarHorta'>publications on Academia</a>"
+      ],
+      "tags": ["activist", "writer", "researcher", "philosopher", "antispeciesist", "suffering-focused ethics"]
+    },
+    {
+      "id": 5,
+      "name": "Melanie Joy",
+      "imgSrcs": {
+        "thumb": "https://i.ytimg.com/vi/Vo4LEtu1lrg/maxresdefault.jpg",
+        "default": "https://i.ytimg.com/vi/Vo4LEtu1lrg/maxresdefault.jpg"
+      },
+      "shortIntro": "Founder and president of Beyond Carnism.",
+      "lang": ["English"],
       "what": "",
       "quotes": [],
       "see": [
+        "<a href='https://youtu.be/cZ0XTofuGmY'>The Secret Reason We Eat Meat</a> video",
+        "<a href='https://www.carnism.org/'>Beyond Carnism</a> website"
       ],
-      "tags": ["activist", "writer", "researcher", "philosopher", "antispeciesist", "suffering-focused ethics"]
+      "tags": ["activist", "writer", "researcher", "philosopher"]
     }
-  ]
+  ],
+  "todo": ["Tobias Leenaert https://www.carnism.org/who-we-are"]
 }
