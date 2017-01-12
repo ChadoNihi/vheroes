@@ -106,25 +106,26 @@
         "<a href='https://animalcharityevaluators.org/blog/why-the-situation-of-animals-in-the-wild-should-concern-us/'>Why the Situation of Animals in the Wild Should Concern Us</a> guest post for Animal Charity Evaluators"
         "Oscar's <a href='https://usc-es.academia.edu/OscarHorta'>publications on Academia</a>"
       ],
-      "tags": ["activist", "writer", "researcher", "philosopher", "antispeciesist", "suffering-focused ethics"]
+      "tags": ["activist", "writer", "researcher", "philosopher", "antispeciesist", "suffering-focused ethics", "PhD"]
     },
     {
       "id": 5,
       "name": "Melanie Joy",
       "imgSrcs": {
-        "thumb": "https://i.ytimg.com/vi/Vo4LEtu1lrg/maxresdefault.jpg",
-        "default": "https://i.ytimg.com/vi/Vo4LEtu1lrg/maxresdefault.jpg"
+        "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Melanie_TEDX.jpg/800px-Melanie_TEDX.jpg",
+        "default": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Melanie_TEDX.jpg/800px-Melanie_TEDX.jpg"
       },
       "shortIntro": "Social psychologist and vegan activist. Popularized the term carnism. Wrote Why We Love Dogs, Eat Pigs, and Wear Cows. Founder and president of Beyond Carnism.",
       "lang": ["English"],
-      "what": "",
+      "what": "Melanie Joy is a Harvard-educated PhD psychologist, writer, and vegan activist. She is perhaps best known for the term <a href='https://youtu.be/ao2GL3NAWQU?t=3m40s'>carnism</a>, 'the invisible belief system that shapes our perception of the meat, eggs, and dairy we eat, so that we love some animals and eat others' without noticing the paradox. Although coined in 2001, the concept caught on after her 2009 book <a href='https://www.carnism.org/book'>Why We Love Dogs, Eat Pigs, and Wear Cows</a> and got major public exposure by her TEDx talk Toward Rational, Authentic Food Choices. Melanie also authored \"Strategic Action for Animals\" and was awarded the Institute of Jainology's Ahimsa Award for promoting non-violence principles.",
       "quotes": [],
       "see": [
         "<a href='https://youtu.be/cZ0XTofuGmY'>The Secret Reason We Eat Meat</a> video",
+        "<a href=''>Toward Rational, Authentic Food Choices</a> TEDx",
         "<a href='https://www.carnism.org/'>Beyond Carnism</a> website"
       ],
-      "tags": ["activist", "writer", "researcher", "philosopher"]
+      "tags": ["activist", "writer", "PhD", "social psychologist", "Ahimsa Award", "TEDx"]
     }
   ],
-  "todo": ["Tobias Leenaert https://www.carnism.org/who-we-are"]
+  "todo": ["Tobias Leenaert https://www.carnism.org/who-we-are", "Rip Esselstyn"]
 }
