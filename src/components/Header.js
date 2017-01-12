@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import {reverseSortSuffix} from '../constants';
 
-const rePathForWhenToShowSort = /^/(#.*)?$/;
+const rePathForWhenToShowSort = /^\/(#.*)?$/;
 
 export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, location})=>
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
