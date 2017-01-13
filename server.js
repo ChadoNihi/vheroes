@@ -60,7 +60,7 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
     store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
     store.dispatch(changeHero(0));
     store.dispatch(changeDragLock(false));
-    store.dispatch(setSortBy('id'));
+    store.dispatch(setSortBy((!req.query.sb ? 'id' : parseSortMethod(req.query.sb))));
 
     let markup = ReactDOMServer.renderToString(
       <Provider store={store}>
@@ -101,37 +101,13 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
 
       res.send(renderFullPage(markup, store.getState()));
     }
-
-    /*match({ routes, location: req.url }, (err, redirect, props) => {
-      if (err) {
-        res.status(500).send(err.message);
-      } else if (redirect) {
-        res.redirect(redirect.pathname + redirect.search);
-      } else if (props) {
-        fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
-          if (err) console.log(err);
-
-          //const initialState = Object.assign({}, JSON.parse(jsonStr), {heroInFocus:0, sortBy: 'id'});
-          const store = configureStore();
-          store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
-          store.dispatch(changeHero(0));
-          store.dispatch(setSortBy('id'));
-
-          const html = ReactDOMServer.renderToString(
-            <Provider store={store}>
-              <RouterContext {...props}/>
-            </Provider>
-          );
-
-          res.send(renderFullPage(html, store.getState())); // change to jsonStr + change renderFullPage accordingly
-        });
-      } else {
-        res.status(404).send('Not Found');
-      }
-    });*/
   });
 
   app.listen(port, function () {
     console.log(`The app's listening on port ${port}!`);
   });
 });
+
+const parseSortMethod = (sortByValFromUrl)=> {
+  return 'id';
+};
