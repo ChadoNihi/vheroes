@@ -37,7 +37,7 @@ export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, lo
         </label>
         <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-rand">
           <input type="radio" id="sort-opt-rand" className="mdl-radio__button" name="sort-options" value="rand"
-              onChange={onSortChange} checked={sortBy === 'rand'} />
+              onChange={onSortChange} checked={sortBy.startsWith('rand')} />
           <span className="mdl-radio__label">Shuffle</span>
         </label>
       </nav>) : null}

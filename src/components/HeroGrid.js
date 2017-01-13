@@ -3,9 +3,9 @@ import HeroCell from './HeroCell';
 import MasonryLayout from 'react-masonry-layout';
 
 const sizes = [
-  { columns: 1, gutter: 10 },
-  { mq: '700px', columns: 2, gutter: 26 },
-  { mq: '1104px', columns: 3, gutter: 24 }
+  { columns: 1, gutter: 8 },
+  { mq: '700px', columns: 2, gutter: 16 },
+  { mq: '1104px', columns: 3, gutter: 15 }
 ];
 
 const HeroGrid = ({heroes})=> {
