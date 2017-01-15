@@ -12,6 +12,14 @@ import path from 'path';
 import App from './src/components/App';
 import configureStore from './src/store/configureStore';
 import {changeDragLock, changeHero, setHeroes, setSortBy} from './src/actions/actions';
+import {reverseSortSuffix} from './src/constants';
+
+const reSort = new RegExp('^(id'+reverseSortSuffix+'|name'+reverseSortSuffix+'|id|name|rand)', 'i');
+const parseSortMethod = (sortValFromUrl)=> {
+  const res = reSort.exec(sortValFromUrl);
+  if (res && res[1]) return res[1];
+  else return 'id';
+};
 
 const app = new Express(),
       port = process.env.PORT || 8080;
@@ -60,7 +68,7 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
     store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
     store.dispatch(changeHero(0));
     store.dispatch(changeDragLock(false));
-    store.dispatch(setSortBy((!req.query.sb ? 'id' : parseSortMethod(req.query.sb))));
+    store.dispatch(setSortBy((!req.query.s ? 'id' : parseSortMethod(req.query.s))));
 
     let markup = ReactDOMServer.renderToString(
       <Provider store={store}>
@@ -107,7 +115,3 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
     console.log(`The app's listening on port ${port}!`);
   });
 });
-
-const parseSortMethod = (sortByValFromUrl)=> {
-  return 'id';
-};

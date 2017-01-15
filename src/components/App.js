@@ -48,11 +48,11 @@ class App extends React.Component {
   onSortChange(e) {
     if (e.currentTarget.value === 'rand') {
       this.props.changeSort(e.currentTarget.value + Math.random());
-      this.context.router.transitionTo('/?sb=rand');
+      this.context.router.transitionTo('/?s=rand');
     }
     else if (e.currentTarget.value !== this.props.sortBy) {
       this.props.changeSort(e.currentTarget.value);
-      this.context.router.transitionTo('/?sb='+e.currentTarget.value);
+      this.context.router.transitionTo('/?s='+e.currentTarget.value);
     }
   }
 
