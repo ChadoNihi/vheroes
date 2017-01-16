@@ -34,9 +34,9 @@ const renderFullPage = (html, preloadedState)=>
       <meta name="description" content="A list of persons consciously contributed to reduction of non-human animal suffering. Their impact on bringing about a vegan world is reletively noticeable" />
       <title>Vegan Heroes</title>
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-orange.min.css" />
-      <link rel="stylesheet" href="/css/main.css" />
+      <link rel="stylesheet" href="css/material.min.css">
+      <script src="js/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
       <script defer src="https://use.fontawesome.com/ade899c041.js"></script>
     </head>
