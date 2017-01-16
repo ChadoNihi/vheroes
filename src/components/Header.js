@@ -9,7 +9,7 @@ export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, lo
   <header className="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
     <div className="mdl-layout-icon"></div>
     <div className="mdl-layout__header-row">
-      <span className="mdl-layout-title"><Link to="/" className='logo-text'>{title}</Link><span className='mark-sign'>*</span></span>
+      <span className="mdl-layout-title"><Link to="/" className='logo-text'>{title}</Link>{/*<span className='mark-sign'>*</span>*/}</span>
 
       <div className="mdl-layout-spacer"></div>
 

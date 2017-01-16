@@ -7,5 +7,5 @@ export default ({title})=>
     <nav className="mdl-navigation">
       <Link to="/about" className="mdl-navigation__link">About</Link>
     </nav>
-    <p className='sidenote'>* those I'm aware of</p>
+    <p className='sidenote'></p>
   </div>;
