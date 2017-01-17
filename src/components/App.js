@@ -1,5 +1,5 @@
 import React  from 'react';
-import {Link, Match, Miss, Redirect} from 'react-router';
+import {Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero, changeDragLock, setSortBy } from '../actions/actions';
@@ -12,7 +12,7 @@ import HeroGrid from './HeroGrid';
 import HeroSlider from './HeroSlider';
 import SharePanel from './SharePanel';
 import ToTheTopBtn from './ToTheTopBtn';
-//import Footer from './Footer';
+import Footer from './Footer';
 
 class App extends React.Component {
   // static contextTypes = {
@@ -92,7 +92,7 @@ class App extends React.Component {
           <Match exactly pattern='/' render={()=> <SharePanel pathname={'/'} description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
-          {/*<Footer />*/}
+          <Footer />
         </main>
       </div>
     );

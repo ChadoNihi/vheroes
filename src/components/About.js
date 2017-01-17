@@ -17,8 +17,8 @@ export default ()=> {
         There're no strict criteria of how to end up on the list. For now, combination of positive impact, influence, potential of ideas, visitors' suggestions and other factors - as percieved by the website authors' biased minds - ultimately decides whom to add next.
       </div>
       <div className="mdl-card__actions">
-        <a className="mdl-button mdl-js-button mdl-js-ripple-effect" href='#'>
-          Contribute
+        <a className="mdl-button mdl-js-button mdl-js-ripple-effect" href='https://github.com/ChadoNihi/vheroes/blob/master/CONTRIBUTING.md' target='_blank'>
+          Contribute on GitHub
         </a>
       </div>
     </div>

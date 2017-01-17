@@ -1,18 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default ()=>
-  <footer className="mdl-mini-footer" style={({padding: "0.5em 1em"})}>
+  <footer className="mdl-mini-footer" style={({marginTop: "2em", padding: "0.5em 1em"})}>
     <div className="mdl-mini-footer--left-section">
       <ul className="mdl-mini-footer--link-list">
-        <li>Created by eFish (aka Chado Nihi)</li>
+        <li>Created by eFish (aka <a href='https://twitter.com/ChadoNihi' target='_blank'>Chado Nihi</a>)</li>
       </ul>
     </div>
     <div className="mdl-mini-footer--right-section">
       <ul className="mdl-mini-footer--link-list">
-        <li>Contact me on:</li>
-        <li><a target='_blank' href="https://twitter.com/ChadoNihi"><i className="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-        <li><a target='_blank' href="https://www.facebook.com/chado.nihi"><i className="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-        <li><a target='_blank' href="https://github.com/ChadoNihi"><i className="fa fa-github fa-lg" aria-hidden="true"></i></a></li>
+        <li><a target='_blank' href="https://github.com/ChadoNihi/vheroes/blob/master/CONTRIBUTING.md">Contributing</a></li>
+        <li><Link to="/about">About</Link></li>
       </ul>
     </div>
   </footer>;
