@@ -15,27 +15,27 @@ export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, lo
 
       {rePathForWhenToShowSort.test(location.pathname) ? (<nav className='mdl-navigation nav-sort'>
         {/*<span>Sort</span>*/}
-        <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-id">
+        <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-id">
           <input type="radio" id="sort-opt-id" className="mdl-radio__button" name="sort-options" value="id"
               onChange={onSortChange} checked={sortBy === 'id'} />
           <span className="mdl-radio__label">Newest first</span>
         </label>
-        <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor={`sort-opt-id${reverseSortSuffix}`}>
+        <label className="mdl-radio mdl-js-radio" htmlFor={`sort-opt-id${reverseSortSuffix}`}>
           <input type="radio" id={`sort-opt-id${reverseSortSuffix}`} className="mdl-radio__button" name="sort-options" value={`id${reverseSortSuffix}`}
               onChange={onSortChange} checked={sortBy === `id${reverseSortSuffix}`} />
           <span className="mdl-radio__label">Oldest published</span>
         </label>
-        <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-name">
+        <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-name">
           <input type="radio" id="sort-opt-name" className="mdl-radio__button" name="sort-options" value="name"
               onChange={onSortChange} checked={sortBy === 'name'} />
           <span className="mdl-radio__label">A-Z</span>
         </label>
-        <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor={`sort-opt-name${reverseSortSuffix}`}>
+        <label className="mdl-radio mdl-js-radio" htmlFor={`sort-opt-name${reverseSortSuffix}`}>
           <input type="radio" id={`sort-opt-name${reverseSortSuffix}`} className="mdl-radio__button" name="sort-options" value={`name${reverseSortSuffix}`}
               onChange={onSortChange} checked={sortBy === `name${reverseSortSuffix}`} />
           <span className="mdl-radio__label">Z-A</span>
         </label>
-        <label className="mdl-radio mdl-js-radio mdl-js-ripple-effect" htmlFor="sort-opt-rand">
+        <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-rand">
           <input type="radio" id="sort-opt-rand" className="mdl-radio__button" name="sort-options" value="rand"
               onChange={onSortChange} checked={sortBy.startsWith('rand')} />
           <span className="mdl-radio__label">Shuffle</span>
