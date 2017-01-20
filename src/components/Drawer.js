@@ -7,5 +7,5 @@ export default ({title})=>
     <nav className="mdl-navigation">
       <Link to="/about" className="mdl-navigation__link">About</Link>
     </nav>
-    <p className='sidenote'></p>
+    <p className='sidenote'>* not a final name. Shameless variant on <a href='https://www.facebook.com/groups/considerales/' target='_blank'>Considerales</a></p>
   </div>;
