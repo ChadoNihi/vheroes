@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "postinstall": "webpack --display-error-details",
+    "build": "webpack --display-error-details",
     "prestart": "npm run build",
     "start": "node bundle.server.js"
   },
