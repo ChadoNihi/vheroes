@@ -46,8 +46,8 @@
       "id": 2,
       "name": "Matt Ball",
       "imgSrcs": {
-        "thumb": "http://veganstrategist.org/wp-content/uploads/2015/11/matt1.jpg",
-        "default": "http://veganstrategist.org/wp-content/uploads/2015/11/matt1.jpg"
+        "thumb": "https://veganstrategist.org/wp-content/uploads/2015/11/matt1.jpg",
+        "default": "https://veganstrategist.org/wp-content/uploads/2015/11/matt1.jpg"
       },
       "shortIntro": "Co-founder and past Executive Director of Vegan Outreach. Director of Engagement and Outreach at Farm Sanctuary. Co-authored \"The Animal Activist's Handbook\". Author of \"The Accidental Activist\".",
       "lang": ["English"],
@@ -59,6 +59,7 @@
       "see": [
         "Matt's <a href='http://www.mattball.org/' target='_blank'>blog</a>",
         "<a href='https://web.archive.org/web/20140213035508/http://www.veganoutreach.org/articles/youngmatt.html' target='_blank'>Letter to a Young Matt</a>",
+        "\"Vegan is a distraction\". An <a href='https://veganstrategist.org/2015/11/23/an-interview-with-matt-ball/' target='_blank'>interview on The Vegan Strategist</a>",
         "<a href='https://ccc.farmsanctuary.org/read-the-blog/' target='_blank'>Blog at Farm Sanctuary</a>",
         "<a href='http://animaladvocacybook.com/' target='_blank'>The Animal Activist's Handbook</a> (the book's website)",
         "<a href='http://theaccidentalactivist.weebly.com/' target='_blank'>The Accidental Activist</a> (the book's website)"
