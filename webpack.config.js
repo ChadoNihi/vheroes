@@ -42,7 +42,10 @@ module.exports = [
       ]
   },
   plugins: [
-    new ExtractTextPlugin("../css/main.css"),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'dev')
+    }),
+    new ExtractTextPlugin("../css/main.css")
   ]
 },
 
