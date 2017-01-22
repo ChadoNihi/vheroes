@@ -8,6 +8,6 @@ export default function configureStore(history, initialState) {
     reducer,
     (Object.prototype.toString.call(initialState) === "[object String]" ?
       JSON.parse(initialState) : initialState),
-    (process.env.NODE_ENV === 'dev' && applyMiddleware( createLogger() ))
+    (process.env.NODE_ENV === 'dev' ? applyMiddleware( createLogger() ): undefined)
   );
 }
