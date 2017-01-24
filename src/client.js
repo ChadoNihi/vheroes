@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import configureStore from './store/configureStore';
 require("slick-carousel");
-// require("../public/slick-stuff/slick.css");
-// require("../public/slick-stuff/slick-theme.css");
+require("!slick-carousel/slick/slick.css");
+require("!slick-carousel/slick/slick-theme.css");
 require('./styles/main.styl');
 
 const store = configureStore(undefined, window.__PRELOADED_STATE__);
