@@ -1,5 +1,9 @@
 import React from 'react';
+import 'slick-carousel';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
+
 import HeroSlide from './HeroSlide';
 import SharePanel from './SharePanel';
 import {siteName} from '../constants';
