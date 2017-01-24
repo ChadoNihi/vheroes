@@ -28,8 +28,8 @@
       "id": 1,
       "name": "Michael Greger",
       "imgSrcs": {
-        "thumb": "http://i.ytimg.com/vi/1DCjwIVJmMw/maxresdefault.jpg",
-        "default": "http://i.ytimg.com/vi/1DCjwIVJmMw/maxresdefault.jpg"
+        "thumb": "https://i.ytimg.com/vi/1DCjwIVJmMw/maxresdefault.jpg",
+        "default": "https://i.ytimg.com/vi/1DCjwIVJmMw/maxresdefault.jpg"
       },
       "shortIntro": "Physician, dietician, professional speaker, writer. Advocates whole-food, plant-based diets. A man behind <a href='http://nutritionfacts.org/' target='_blank'>NutritionFacts.org</a>.",
       "lang": ["English"],
