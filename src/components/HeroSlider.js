@@ -4,13 +4,13 @@ import HeroSlide from './HeroSlide';
 import SharePanel from './SharePanel';
 import {siteName} from '../constants';
 
-export default ({afterHeroChange, heroes, isDragLocked, location, params})=> {
+export default ({afterHeroChange, heroes, heroId, isDragLocked, location})=> {
   const settings = {
     afterChange: afterHeroChange,
     dots: false,
     draggable: !isDragLocked,
     infinite: true,
-    initialSlide: params.heroId || 0,
+    initialSlide: heroId,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -23,7 +23,7 @@ export default ({afterHeroChange, heroes, isDragLocked, location, params})=> {
           return <div key={hero.id}><HeroSlide {...hero} /></div>;
         })}
       </Slider>
-      <SharePanel description={siteName+' is a website featuring bright people whose primary cause contributes to reducing suffering in the world.'} media={'test'} pathname={location.pathname} title={'Meet '+heroes[params.heroId || 0].name+' | '+siteName} />
+      <SharePanel description={siteName+' is a website featuring bright people whose primary cause contributes to reducing suffering in the world.'} media={'test'} pathname={location.pathname} title={'Meet '+heroes[heroId].name+' | '+siteName} />
     </div>
   );
 };

@@ -30,15 +30,9 @@ class App extends React.Component {
     this.onSortChange = this.onSortChange.bind(this);
   }
 
-  componentDidMount() {
-    /*this.props.dispatch(fetchPolls());
-    this.props.dispatch(fetchUser());*/
-  }
-
   afterHeroChange(newI) {
     this.props.changeHero(newI);
     this.context.router.transitionTo('/hero/'+newI);
-    //this.props.history.push('/');
   }
 
   onDragLockChange() {
@@ -88,7 +82,15 @@ class App extends React.Component {
         <main className="mdl-layout__content">
           <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
           <Match exactly pattern='/about' component={About} />
-          <Match pattern='/hero/:heroId?' render={(props)=> <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={sortedHeroes} isDragLocked={this.props.isDragLocked} />} />
+
+          <Match pattern='/hero/:heroId?' render={(props)=> {
+            const parsedHeroId = parseInt(props.params.heroId);
+            if (!isNaN(parsedHeroId) && parsedHeroId >= 0 && parsedHeroId < sortedHeroes.length)
+              return <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={sortedHeroes} heroId={parsedHeroId} isDragLocked={this.props.isDragLocked} />;
+            else
+              return <Redirect to="/hero/0" />;
+          }} />
+
           <Match exactly pattern='/' render={()=> <SharePanel pathname={'/'} description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
           <Miss render={()=> <h2>No pages for such address</h2>} />
           <ToTheTopBtn />
