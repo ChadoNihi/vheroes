@@ -31,7 +31,7 @@ const renderFullPage = (html, preloadedState)=>
     <head lang='en'>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="A list of persons consciously contributed to reduction of non-human animal suffering. Their impact on bringing about a vegan world is reletively noticeable" />
+      <meta name="description" content="A list of noticeable contributors to reduction of non-human animal suffering. One might call them vegan heroes." />
       <title>Vegan Heroes</title>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
