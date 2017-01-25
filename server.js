@@ -36,6 +36,8 @@ const renderFullPage = (html, preloadedState)=>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-orange.min.css" />
+      <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
+      <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
       <link rel="stylesheet" href="/css/main.css" />
       <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
       <script defer src="https://use.fontawesome.com/ade899c041.js"></script>
@@ -51,6 +53,7 @@ const renderFullPage = (html, preloadedState)=>
   `
 
 app.use(Express.static('public'));
+//app.use(Express.static('node_modules/slick-carousel'));
 
 fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
   if (err) console.log(err);
