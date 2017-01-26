@@ -11,10 +11,10 @@ export default ()=> {
         Irrespective of what you thinks about this website, you should definetely familiarize oneself with the work of exceptional persons presented here.
       </div>
       <div className="hero-what mdl-card__supporting-text">
-        Whom to expect to find here? A diverse set of philosophers, scientists, activists, writers, artists, and others with all sorts of professional backgrounds. Often with quite different means, all are working against shared universal disvalue - suffering.
+        Whom to expect on these pages? A diverse set of philosophers, scientists, activists, writers, artists, and others with all sorts of professional backgrounds. Often with quite different means, all are working against shared universal disvalue - suffering.
       </div>
       <div className="hero-what mdl-card__supporting-text">
-        There're no strict criteria of how to end up on the list. For now, combination of positive impact, influence, potential of ideas, visitors' suggestions and other factors - as percieved by the website authors' biased minds - ultimately decides whom to add next.
+        There're no strict criteria of how to end up on the list. For now, a combination of positive impact, influence, potential of ideas, visitors' suggestions, and other factors - as percieved by the website authors' biased minds - ultimately decides whom to add next.
       </div>
       <div className="mdl-card__actions">
         <a className="mdl-button mdl-js-button mdl-js-ripple-effect" href='https://github.com/ChadoNihi/vheroes/blob/master/CONTRIBUTING.md' target='_blank'>

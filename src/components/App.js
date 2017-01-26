@@ -13,6 +13,7 @@ import HeroSlider from './HeroSlider';
 import SharePanel from './SharePanel';
 import ToTheTopBtn from './ToTheTopBtn';
 import Footer from './Footer';
+import NotFound from './NotFound';
 
 class App extends React.Component {
   // static contextTypes = {
@@ -33,6 +34,14 @@ class App extends React.Component {
   afterHeroChange(newI) {
     this.props.changeHero(newI);
     this.context.router.transitionTo('/hero/'+newI);
+  }
+
+  biasedHeroId() {
+    var r1 = Math.random();
+    while (true) {
+      if (r1 < Math.random()) return Math.floor(r1 * this.props.heroes.length)-1;
+      r1 = Math.random();
+    }
   }
 
   onDragLockChange() {
@@ -75,28 +84,30 @@ class App extends React.Component {
   render() {
     const sortedHeroes = this.orderHeroesBySortKey();
     return (
-      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <span id='top'></span>
-        <Match pattern='/' render={(props)=> <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={siteName} />} />
-        <Drawer title={siteName} />
-        <main className="mdl-layout__content">
-          <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
-          <Match exactly pattern='/about' component={About} />
+      <Match pattern='/' render={(props)=> (
+        <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <span id='top'></span>
+          <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={siteName} />
+          <Drawer title={siteName} />
+          <main className="mdl-layout__content">
+            <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
+            <Match exactly pattern='/about' component={About} />
 
-          <Match pattern='/hero/:heroId?' render={(props)=> {
-            const parsedHeroId = parseInt(props.params.heroId);
-            if (!isNaN(parsedHeroId) && parsedHeroId >= 0 && parsedHeroId < sortedHeroes.length)
-              return <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={sortedHeroes} heroId={parsedHeroId} isDragLocked={this.props.isDragLocked} />;
-            else
-              return <Redirect to="/hero/0" />;
-          }} />
+            <Match pattern='/hero/:heroId?' render={(props)=> {
+              const parsedHeroId = parseInt(props.params.heroId);
+              if (!isNaN(parsedHeroId) && parsedHeroId >= 0 && parsedHeroId < sortedHeroes.length)
+                return <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={sortedHeroes} heroId={parsedHeroId} isDragLocked={this.props.isDragLocked} />;
+              else
+                return <Redirect to="/hero/0" />;
+            }} />
 
-          <Match exactly pattern='/' render={()=> <SharePanel pathname={'/'} description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
-          <Miss render={()=> <h2>No pages for such address</h2>} />
-          <ToTheTopBtn />
-          <Footer />
-        </main>
-      </div>
+            <Match exactly pattern='/' render={()=> <SharePanel pathname={'/'} description={this.description} hashtags={this.hashtags} media={'test'} title={'Meet notable contributors to a suffering-free world'} />} />
+            <Miss render={(location)=> <NotFound location={location} randomHeroId={this.biasedHeroId()} />} />
+            <ToTheTopBtn />
+            <Footer />
+          </main>
+        </div>
+      )} />
     );
   }
 }
