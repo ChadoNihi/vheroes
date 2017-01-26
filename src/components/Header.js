@@ -15,14 +15,14 @@ export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, lo
 
       {rePathForWhenToShowSort.test(location.pathname) ? (<nav className='mdl-navigation nav-sort'>
         {/*<span>Sort</span>*/}
-        <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-id">
-          <input type="radio" id="sort-opt-id" className="mdl-radio__button" name="sort-options" value="id"
-              onChange={onSortChange} checked={sortBy === 'id'} />
-          <span className="mdl-radio__label">Newest first</span>
-        </label>
         <label className="mdl-radio mdl-js-radio" htmlFor={`sort-opt-id${reverseSortSuffix}`}>
           <input type="radio" id={`sort-opt-id${reverseSortSuffix}`} className="mdl-radio__button" name="sort-options" value={`id${reverseSortSuffix}`}
               onChange={onSortChange} checked={sortBy === `id${reverseSortSuffix}`} />
+          <span className="mdl-radio__label">Newest first</span>
+        </label>
+        <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-id">
+          <input type="radio" id="sort-opt-id" className="mdl-radio__button" name="sort-options" value="id"
+              onChange={onSortChange} checked={sortBy === 'id'} />
           <span className="mdl-radio__label">Oldest published</span>
         </label>
         <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-name">

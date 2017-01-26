@@ -12,13 +12,13 @@ import path from 'path';
 import App from './src/components/App';
 import configureStore from './src/store/configureStore';
 import {changeDragLock, changeHero, setHeroes, setSortBy} from './src/actions/actions';
-import {reverseSortSuffix} from './src/constants';
+import {defaultSortMethod, reverseSortSuffix} from './src/constants';
 
 const reSort = new RegExp('^(id'+reverseSortSuffix+'|name'+reverseSortSuffix+'|id|name|rand)', 'i');
 const parseSortMethod = (sortValFromUrl)=> {
   const res = reSort.exec(sortValFromUrl);
   if (res && res[1]) return res[1];
-  else return 'id';
+  else return defaultSortMethod;
 };
 
 const app = new Express(),
@@ -71,7 +71,7 @@ fs.readFile('./data/heroes.json', 'utf8', (err, jsonStr)=> {
     store.dispatch(setHeroes(JSON.parse(jsonStr).heroes)); // JS's 'intuitive' const: can still mutate, but cannot reassign
     store.dispatch(changeHero(0));
     store.dispatch(changeDragLock(false));
-    store.dispatch(setSortBy((!req.query.s ? 'id' : parseSortMethod(req.query.s))));
+    store.dispatch(setSortBy((!req.query.s ? defaultSortMethod : parseSortMethod(req.query.s))));
 
     let markup = ReactDOMServer.renderToString(
       <Provider store={store}>

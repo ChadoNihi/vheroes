@@ -3,7 +3,7 @@ import {Match, Miss, Redirect} from 'react-router';
 import {connect} from 'react-redux';
 
 import { changeHero, changeDragLock, setSortBy } from '../actions/actions';
-import {reverseSortSuffix, siteName} from '../constants';
+import {defaultSortMethod, reverseSortSuffix, siteName} from '../constants';
 import {shuffleArray} from '../utils';
 import Header from './Header';
 import Drawer from './Drawer';
@@ -87,7 +87,7 @@ class App extends React.Component {
       <Match pattern='/' render={(props)=> (
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <span id='top'></span>
-          <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || 'id'} title={siteName} />
+          <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || defaultSortMethod} title={siteName} />
           <Drawer title={siteName} />
           <main className="mdl-layout__content">
             <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
