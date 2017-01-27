@@ -66,9 +66,7 @@ class App extends React.Component {
     if (!this.sortedHeroes) this.sortedHeroes = (this.props.heroes ? this.props.heroes.slice() : []);
 
     if (this.props.sortBy.startsWith('rand')) {
-      console.log('before shuffle', this.sortedHeroes[0]);
       shuffleArray(this.sortedHeroes);
-      console.log('after shuffle', this.sortedHeroes[0]);
     }
     else {
       const altFactor = this.props.sortBy.endsWith(reverseSortSuffix) ? -1 : 1;
