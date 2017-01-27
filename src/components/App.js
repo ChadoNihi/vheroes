@@ -25,6 +25,7 @@ class App extends React.Component {
 
     this.description = "A website featuring bright people whose primary cause contributes to reducing suffering in the world.";
     this.hashtags = ['inspiration', 'vegan'];
+    this.sortedHeroes;
 
     this.afterHeroChange = this.afterHeroChange.bind(this);
     this.onDragLockChange = this.onDragLockChange.bind(this);
@@ -32,8 +33,10 @@ class App extends React.Component {
   }
 
   afterHeroChange(newI) {
-    this.props.changeHero(newI);
-    this.context.router.transitionTo('/hero/'+newI);
+    const newId = this.sortedHeroes[newI].id;
+    console.log(newI);
+    this.props.changeHero(newId);
+    this.context.router.transitionTo('/hero/'+newId);
   }
 
   biasedHeroId() {
@@ -60,29 +63,27 @@ class App extends React.Component {
   }
 
   orderHeroesBySortKey() {
-    if (!this.props.heroes) return [];
-
-    let heroesCopy = this.props.heroes.slice();
+    if (!this.sortedHeroes) this.sortedHeroes = (this.props.heroes ? this.props.heroes.slice() : []);
 
     if (this.props.sortBy.startsWith('rand')) {
-      shuffleArray(heroesCopy);
+      console.log('before shuffle', this.sortedHeroes[0]);
+      shuffleArray(this.sortedHeroes);
+      console.log('after shuffle', this.sortedHeroes[0]);
     }
     else {
       const altFactor = this.props.sortBy.endsWith(reverseSortSuffix) ? -1 : 1;
       const sortKey = altFactor === 1 ?
               this.props.sortBy : this.props.sortBy.substring(0, this.props.sortBy.length - reverseSortSuffix.length) ;
-      heroesCopy.sort((h1, h2)=> {
+      this.sortedHeroes.sort((h1, h2)=> {
         if (h1[sortKey] < h2[sortKey]) return -1 * altFactor;
         else if (h1[sortKey] > h2[sortKey]) return 1 * altFactor;
         else return 0;
       });
     }
-
-    return heroesCopy;
   }
 
   render() {
-    const sortedHeroes = this.orderHeroesBySortKey();
+    this.orderHeroesBySortKey();
     return (
       <Match pattern='/' render={(props)=> (
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -90,13 +91,13 @@ class App extends React.Component {
           <Header {...props} isDragLocked={this.props.isDragLocked} onDragLockChange={this.onDragLockChange} onSortChange={this.onSortChange} sortBy={this.props.sortBy || defaultSortMethod} title={siteName} />
           <Drawer title={siteName} />
           <main className="mdl-layout__content">
-            <Match exactly pattern='/' render={()=> <HeroGrid heroes={sortedHeroes} />} />
+            <Match exactly pattern='/' render={()=> <HeroGrid heroes={this.sortedHeroes} />} />
             <Match exactly pattern='/about' component={About} />
 
             <Match pattern='/hero/:heroId?' render={(props)=> {
               const parsedHeroId = parseInt(props.params.heroId);
-              if (!isNaN(parsedHeroId) && parsedHeroId >= 0 && parsedHeroId < sortedHeroes.length)
-                return <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={sortedHeroes} heroId={parsedHeroId} isDragLocked={this.props.isDragLocked} />;
+              if (!isNaN(parsedHeroId) && parsedHeroId >= 0 && parsedHeroId < this.sortedHeroes.length)
+                return <HeroSlider {...props} afterHeroChange={this.afterHeroChange} heroes={this.sortedHeroes} heroId={parsedHeroId} isDragLocked={this.props.isDragLocked} sortBy={this.props.sortBy || defaultSortMethod} />;
               else
                 return <Redirect to="/hero/0" />;
             }} />
@@ -133,8 +134,8 @@ const mapDispatchToProps = (dispatch) => {
     onDragLockChange: (bool) => {
       dispatch(changeDragLock(bool));
     },
-    changeHero: (currId) => {
-      dispatch(changeHero(currId+1));
+    changeHero: (newId) => {
+      dispatch(changeHero(newId));
     }
   }
 }

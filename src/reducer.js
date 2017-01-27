@@ -1,13 +1,6 @@
 import { combineReducers } from "redux";
-//import { routerReducer } from "react-router-redux";
 
 import * as a from "./actions/actionTypes.js";
-
-/*const initialState = {
-  heroInFocus: 0,
-  sortBy: 'id',
-  heroes: undefined
-};*/
 
 const rootReducer = (state = {}, action = {})=> {
   switch (action.type) {
