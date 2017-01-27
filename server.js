@@ -12,9 +12,9 @@ import path from 'path';
 import App from './src/components/App';
 import configureStore from './src/store/configureStore';
 import {changeDragLock, changeHero, setHeroes, setSortBy} from './src/actions/actions';
-import {defaultSortMethod, reverseSortSuffix} from './src/constants';
+import {defaultSortMethod, reverseIdSortKey, reverseSortSuffix} from './src/constants';
 
-const reSort = new RegExp('^(id'+reverseSortSuffix+'|name'+reverseSortSuffix+'|id|name|rand)', 'i');
+const reSort = new RegExp('^('+reverseIdSortKey+'|name'+reverseSortSuffix+'|id|name|rand)', 'i');
 const parseSortMethod = (sortValFromUrl)=> {
   const res = reSort.exec(sortValFromUrl);
   if (res && res[1]) return res[1];

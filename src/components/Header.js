@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import {reverseSortSuffix} from '../constants';
+import {reverseIdSortKey, reverseSortSuffix} from '../constants';
 
 const rePathForWhenToShowSort = /^\/(#.*)?$/;
 
@@ -16,8 +16,8 @@ export default ({isDragLocked, onDragLockChange, onSortChange, sortBy, title, lo
       {rePathForWhenToShowSort.test(location.pathname) ? (<nav className='mdl-navigation nav-sort'>
         {/*<span>Sort</span>*/}
         <label className="mdl-radio mdl-js-radio" htmlFor={`sort-opt-id${reverseSortSuffix}`}>
-          <input type="radio" id={`sort-opt-id${reverseSortSuffix}`} className="mdl-radio__button" name="sort-options" value={`id${reverseSortSuffix}`}
-              onChange={onSortChange} checked={sortBy === `id${reverseSortSuffix}`} />
+          <input type="radio" id={`sort-opt-id${reverseSortSuffix}`} className="mdl-radio__button" name="sort-options" value={reverseIdSortKey}
+              onChange={onSortChange} checked={sortBy === reverseIdSortKey} />
           <span className="mdl-radio__label">Newest first</span>
         </label>
         <label className="mdl-radio mdl-js-radio" htmlFor="sort-opt-id">

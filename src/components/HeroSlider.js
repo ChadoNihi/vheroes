@@ -2,15 +2,16 @@ import React from 'react';
 import Slider from 'react-slick';
 import HeroSlide from './HeroSlide';
 import SharePanel from './SharePanel';
-import {siteName} from '../constants';
+import {reverseIdSortKey, siteName} from '../constants';
+require('core-js/fn/array/find-index');
 
-export default ({afterHeroChange, heroes, heroId, isDragLocked, location})=> {
+export default ({afterHeroChange, heroes, heroId, isDragLocked, location, sortBy})=> {
   const settings = {
     afterChange: afterHeroChange,
     dots: false,
     draggable: !isDragLocked,
     infinite: true,
-    initialSlide: heroId,
+    initialSlide: (sortBy === reverseIdSortKey ? heroId : heroes.findIndex(hero=> hero.id === heroId)),
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
