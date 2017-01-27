@@ -26,6 +26,7 @@ class App extends React.Component {
     this.description = "A website featuring bright people whose primary cause contributes to reducing suffering in the world.";
     this.hashtags = ['inspiration', 'vegan'];
     this.sortedHeroes;
+    this.shouldResortHeroes = true;
 
     this.afterHeroChange = this.afterHeroChange.bind(this);
     this.onDragLockChange = this.onDragLockChange.bind(this);
@@ -34,7 +35,9 @@ class App extends React.Component {
 
   afterHeroChange(newI) {
     const newId = this.sortedHeroes[newI].id;
-    console.log(newI);
+
+    this.shouldResortHeroes = false;
+
     this.props.changeHero(newId);
     this.context.router.transitionTo('/hero/'+newId);
   }
@@ -81,7 +84,9 @@ class App extends React.Component {
   }
 
   render() {
-    this.orderHeroesBySortKey();
+    if (this.shouldResortHeroes) this.orderHeroesBySortKey();
+    this.shouldResortHeroes = true;
+
     return (
       <Match pattern='/' render={(props)=> (
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
