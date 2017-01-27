@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import HeroSlide from './HeroSlide';
 import SharePanel from './SharePanel';
 import {siteName} from '../constants';
-require('core-js/fn/array/find-index');
 
 export default ({afterHeroChange, heroes, heroId, isDragLocked, location, sortBy})=> {
   const settings = {
